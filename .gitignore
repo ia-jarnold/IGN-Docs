@@ -1,2 +1,4 @@
 logs/*
 docs/.jython_cache
+docs/build/*
+__pycache__

@@ -10,7 +10,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # build docs using containers env..this is the only place to build source from webservice exposes a route and volume to maintain this.
-RUN cd docs && \
-    make html
+#RUN cd docs && \
+#    make html
 
-CMD ["python", "app.py"]
+CMD ["gunicorn", "-b 0.0.0.0:5000", "app:app"]

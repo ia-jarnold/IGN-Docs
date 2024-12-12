@@ -1,3 +1,4 @@
+gunicorn
 flask
 sphinx-nefertiti
 sphinx-design

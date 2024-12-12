@@ -29,5 +29,22 @@ def refresh():
     # will rebuild docs from source (docs/source)
     return redirect(url_for('index'))
 
+#@app.route('/print')
+#def print():
+#
+#    with open(LOG_PATH + '/gunicorn.log', 'w') as g_log: 
+#        p = subprocess.run(['gunicorn','--help'], cwd = '.', stdout=g_log)
+#
+#    # will rebuild docs from source (docs/source)
+#    return redirect(url_for('index'))
+
 if __name__ == "__main__":
+
+    # rebuild docs if servce restarts doing so in the Docker on image create file will
+    # remove this build when volums are connected since we have no local
+    # build and want to have the dev directory exposed atm...if we move the dev directory
+    # valume back down to only docs source image can hold initial build. But right now I am 
+    # looking at everything.
+    p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log)
     app.run(host="0.0.0.0", port=5000)
+
