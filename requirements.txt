@@ -1,0 +1,3 @@
+flask
+sphinx-nefertiti
+sphinx-design
