@@ -12,5 +12,5 @@ COPY . .
 # build docs using containers env..this is the only place to build source from webservice exposes a route and volume to maintain this.
 #RUN cd docs && \
 #    make html
-
-CMD ["gunicorn", "-b 0.0.0.0:5000", "app:app"]
+ 
+CMD ["gunicorn", "-b 0.0.0.0:5000","--access-logfile=-","app:app"]

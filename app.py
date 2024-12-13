@@ -3,6 +3,7 @@ from flask import send_from_directory
 from flask import redirect, url_for
 import subprocess
 import os
+import logging
 
 LOG_PATH = './logs'
 DOCS_DIR = './docs'
@@ -29,14 +30,14 @@ def refresh():
     # will rebuild docs from source (docs/source)
     return redirect(url_for('index'))
 
-#@app.route('/print')
-#def print():
-#
-#    with open(LOG_PATH + '/gunicorn.log', 'w') as g_log: 
-#        p = subprocess.run(['gunicorn','--help'], cwd = '.', stdout=g_log)
-#
-#    # will rebuild docs from source (docs/source)
-#    return redirect(url_for('index'))
+@app.route('/print')
+def print():
+
+    with open(LOG_PATH + '/gunicorn.log', 'w') as g_log: 
+        p = subprocess.run(['gunicorn','--help'], cwd = '.', stdout=g_log)
+
+    # will rebuild docs from source (docs/source)
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
 
@@ -45,6 +46,11 @@ if __name__ == "__main__":
     # build and want to have the dev directory exposed atm...if we move the dev directory
     # valume back down to only docs source image can hold initial build. But right now I am 
     # looking at everything.
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
+    
     p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log)
+
     app.run(host="0.0.0.0", port=5000)
 

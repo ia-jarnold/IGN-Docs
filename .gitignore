@@ -2,3 +2,5 @@ logs/*
 docs/.jython_cache
 docs/build/*
 __pycache__
+*.swp
+*.swo
