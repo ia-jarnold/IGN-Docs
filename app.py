@@ -30,14 +30,14 @@ def refresh():
     # will rebuild docs from source (docs/source)
     return redirect(url_for('index'))
 
-@app.route('/print')
-def print():
-
-    with open(LOG_PATH + '/gunicorn.log', 'w') as g_log: 
-        p = subprocess.run(['gunicorn','--help'], cwd = '.', stdout=g_log)
-
-    # will rebuild docs from source (docs/source)
-    return redirect(url_for('index'))
+#@app.route('/print')
+#def print():
+#
+#    with open(LOG_PATH + '/gunicorn.log', 'w') as g_log: 
+#        p = subprocess.run(['gunicorn','--help'], cwd = '.', stdout=g_log)
+#
+#    # will rebuild docs from source (docs/source)
+#    return redirect(url_for('index'))
 
 if __name__ == "__main__":
 

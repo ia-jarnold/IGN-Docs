@@ -13,4 +13,4 @@ COPY . .
 #RUN cd docs && \
 #    make html
  
-CMD ["gunicorn", "-b 0.0.0.0:5000","--access-logfile=-","app:app"]
+CMD ["gunicorn", "--bind=0.0.0.0:5000","--error-logfile=-","--access-logfile=-","--log-level=Debug","app:app"]
