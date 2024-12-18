@@ -6,6 +6,14 @@
 Welcome to IGN-Docs's documentation!
 ====================================
 
+.. button-link:: http://192.168.79.128:5000/refresh
+
+   Refresh Docs
+
+.. button-link:: http://192.168.79.128:5000/archive
+
+   Archive Docs
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -35,6 +43,3 @@ Sphinx Design
 
 :bdg:`plain badge`
 
-.. button-link:: http://192.168.79.128:5000/refresh
-
-   Refresh

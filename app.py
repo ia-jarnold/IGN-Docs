@@ -1,8 +1,10 @@
 from flask import Flask
 from flask import send_from_directory
 from flask import redirect, url_for
+from datetime import datetime
 import subprocess
 import os
+import os.path
 import logging
 
 LOG_PATH = './logs'
@@ -10,47 +12,63 @@ DOCS_DIR = './docs'
 
 BUILD_LOG = LOG_PATH + '/build.log'
 BUILD_DIR = DOCS_DIR + '/build'
-STATIC_DIR = BUILD_DIR + '/html' # docs are  built from source to html
+STATIC_DIR = BUILD_DIR + '/html' # docs are built from source to html
+ARCHIVE_DIR = './tmp'
+
+DATE_FMT = "%m/%d/%Y %H:%M:%S"
 
 app = Flask(__name__, static_url_path='/', static_folder=STATIC_DIR)
+#app.config['PROPAGATE_EXCEPTIONS'] = False # not sure yet...
 
-# https://dev.to/rtficial/serving-static-files-and-creating-websites-using-python-flask-41c3
+# not always the best but easy way to get all logs in 1 place...
+gunicorn_logger = logging.getLogger('gunicorn.error')
+app.logger.handlers = gunicorn_logger.handlers
+app.logger.setLevel(gunicorn_logger.level)
+
+gunicorn_logger.info('Starting Flask Server')
+
+# will rebuild docs from source (docs/source -> docs/build/html)
+def build_docs():
+
+    now = datetime.now().strftime(DATE_FMT)
+    with open(BUILD_LOG, 'w') as build_log:
+        p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log)
+        build_log.write('Finished ' + now + '\n')
+
+def archive_docs():
+    now = datetime.now().strftime(DATE_FMT)
+    #with open(BUILD_LOG, 'w') as build_log:
+    p = subprocess.run(['tar', '-czvf', ARCHIVE_DIR + '/docs.tar.gz', STATIC_DIR], cwd = '.')
+    #build_log.write('Finished ' + now + '\n')
+
 @app.route("/")
 @app.route("/docs")
 def index():
-    return send_from_directory('./docs/build/html', 'index.html') 
+
+    return send_from_directory(STATIC_DIR, 'index.html')
 
 @app.route("/refresh")
 @app.route('/build')
 def refresh():
 
-    with open(BUILD_LOG, 'w') as build_log: 
-        p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log)
-
-    # will rebuild docs from source (docs/source)
+    gunicorn_logger.info('Refreshing Docs..see build log in %s' % BUILD_LOG)
+    build_docs()
     return redirect(url_for('index'))
 
-#@app.route('/print')
-#def print():
-#
-#    with open(LOG_PATH + '/gunicorn.log', 'w') as g_log: 
-#        p = subprocess.run(['gunicorn','--help'], cwd = '.', stdout=g_log)
-#
-#    # will rebuild docs from source (docs/source)
-#    return redirect(url_for('index'))
+@app.route("/backup")
+@app.route('/archive')
+def backup():
+
+    gunicorn_logger.info('Archiving Docs in %s' % ARCHIVE_DIR) 
+    archive_docs()
+    return redirect(url_for('index'))
+
+# build initial docs on server load if no index is there.
+if not os.path.isfile(STATIC_DIR + '/index.html'):
+    gunicorn_logger.info('Running an initial build')
+    build_docs()
 
 if __name__ == "__main__":
-
-    # rebuild docs if servce restarts doing so in the Docker on image create file will
-    # remove this build when volums are connected since we have no local
-    # build and want to have the dev directory exposed atm...if we move the dev directory
-    # valume back down to only docs source image can hold initial build. But right now I am 
-    # looking at everything.
-    gunicorn_logger = logging.getLogger('gunicorn.error')
-    app.logger.handlers = gunicorn_logger.handlers
-    app.logger.setLevel(gunicorn_logger.level)
-    
-    p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log)
 
     app.run(host="0.0.0.0", port=5000)
 
