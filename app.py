@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import send_from_directory
 from flask import redirect, url_for
+#from flask import request
 from datetime import datetime
 import subprocess
 import os
@@ -18,14 +19,15 @@ ARCHIVE_DIR = './tmp'
 DATE_FMT = "%m/%d/%Y %H:%M:%S"
 
 app = Flask(__name__, static_url_path='/', static_folder=STATIC_DIR)
-#app.config['PROPAGATE_EXCEPTIONS'] = False # not sure yet...
 
 # not always the best but easy way to get all logs in 1 place...
 gunicorn_logger = logging.getLogger('gunicorn.error')
 app.logger.handlers = gunicorn_logger.handlers
 app.logger.setLevel(gunicorn_logger.level)
+#app.config['PROPAGATE_EXCEPTIONS'] = False # not sure yet...
 
 gunicorn_logger.info('Starting Flask Server')
+
 
 # will rebuild docs from source (docs/source -> docs/build/html)
 def build_docs():
@@ -37,9 +39,7 @@ def build_docs():
 
 def archive_docs():
     now = datetime.now().strftime(DATE_FMT)
-    #with open(BUILD_LOG, 'w') as build_log:
     p = subprocess.run(['tar', '-czvf', ARCHIVE_DIR + '/docs.tar.gz', STATIC_DIR], cwd = '.')
-    #build_log.write('Finished ' + now + '\n')
 
 @app.route("/")
 @app.route("/docs")
@@ -63,7 +63,7 @@ def backup():
     archive_docs()
     return redirect(url_for('index'))
 
-# build initial docs on server load if no index is there.
+# build initial docs on server load if no index is there. for dev atm really
 if not os.path.isfile(STATIC_DIR + '/index.html'):
     gunicorn_logger.info('Running an initial build')
     build_docs()
@@ -71,4 +71,3 @@ if not os.path.isfile(STATIC_DIR + '/index.html'):
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000)
-

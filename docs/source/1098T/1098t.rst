@@ -1,0 +1,88 @@
+======
+1098-T
+======
+
+1098T General Procedures
+========================
+
+#. Ensure the 1098T Colleague updates have been applied currently by Dave in IT. I provide him with these `1098t Ellucian Releases`_ .
+
+1098T Annual Procedures
+=======================
+
+.. toctree::
+   :maxdepth: 1
+
+{% for item in years %}
+
+   {{ item }}/{{ item }}
+
+{% endfor %}
+
+1098t Colleague Forms
+=====================
+
+* :ref:`T98T` -- corrections?
+
+| Build
+
+* :ref:`T9TD` - Default Parameters as well. Where the year param(like GI03) is configured for the submission.
+* :ref:`T9TE` - Box code aditional parameters and exceptions.
+* :ref:`T9TG` - Build/Work form -- longer process ~ 1hr
+* :ref:`T9TM` - Export Flat file
+
+* :ref:`TFBX` - Looks to match Box Codes for IRS forms to AR record codes.
+
+| Reports
+
+* :ref:`T9TA` - Generate Analytical Report.
+* :ref:`T9TR` - Generate Detail Report -- longer process ~1hr
+* :ref:`T9TF` - Print actual 1098t's as pdf
+* :ref:`T9TY` - Webadvisor pdfs -- under :ref:`T9TD` -- pretty much set to yes...
+* :ref:`T9RN` - Email Notifications?
+
+| Status why 2 this got be at the end of 2022?
+
+* :ref:`T9TS` - Set submission status
+* :ref:`T9TC` - Set Submission Status
+
+| More information on the above forms can be found.
+
+* `1098t Ellucian Walkthrough`_
+
+| Also Daves and Michael's walkthrough.
+
+1098t Info
+==========
+
+| We currently use a Third party service to ensure our 1098ts are reported to the irs and can be printed. Sutents will soon be able to get a digital copy through Colleague Self-Service.
+
+* TRACustomerSupport@maximus.com
+
+1098t Common Joins
+==================
+
+.. dropdown:: 1098-T Common Join SQL
+
+   .. code-block:: SQL
+
+      SELECT * -- DISTINCT LEFT(aw.AR_1098T_WORK_ID, 7)
+      FROM AR_1098T_WORK aw
+           LEFT JOIN AR_1098T_BOXES_WORK abw ON LEFT(aw.AR_1098T_WORK_ID, 7) = LEFT(abw.AR_1098T_BOXES_WORK_ID, 7)
+
+1098-T Useful Resources
+=======================
+
+* `Maximus TRA Login`_  - Our Third party Service.
+* `Maximus TRA Links`_  - More links to IRS info.
+* `IRS 1098t Info`_
+* `Turbo Tax 1098t Info`_
+* `2023 1098t Instructions`_ newest instructions
+* `1098t Ellucian Walkthrough`_
+* `Ellucian-Colleague-Student`_ - info about configuring colleague student.
+* `1098t Ellucian Releases`_ -- Where to check for updates in customer center.
+
+Quick Google tidbit on SCH vs Box 1
+===================================
+
+| No, you don't have to report your 1098-T, not unless you want to claim an education credit. However if your grant/scholarship amount (box 5) is more than your tuition (box 1/box 2) you may want to report it because excess scholarship money may be treated as taxable income on your return.

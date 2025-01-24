@@ -6,17 +6,19 @@
 Welcome to IGN-Docs's documentation!
 ====================================
 
-.. button-link:: http://192.168.79.128:5000/refresh
+.. button-link:: http://192.168.163.128:5000/refresh
 
    Refresh Docs
 
-.. button-link:: http://192.168.79.128:5000/archive
+.. button-link:: http://192.168.163.128:5000/archive
 
    Archive Docs
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   1098T/1098t
 
 
 

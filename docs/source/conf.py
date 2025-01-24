@@ -32,4 +32,34 @@ with open('links.rst') as f:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_nefertiti'
-html_static_path = ['_static']
+html_static_path = ['_static', '_static/html']
+
+# allow templating of rst files using configurations
+# https://ericholscher.com/blog/2016/jul/25/integrating-jinja-rst-sphinx/
+def rstjinja(app, docname, source):
+   """
+   Render our pages as a jinja template for fancy templating goodness.
+   """
+   # Make sure we're outputting HTML
+   if app.builder.format != 'html':
+       return
+   src = source[0]
+   rendered = app.builder.templates.render_string(
+       src, app.config.html_context
+   )
+   source[0] = rendered
+
+def setup(app):
+   app.connect("source-read", rstjinja)
+
+# Starting doc roots...
+years = ['2021', '2022', '2023']
+ign_versions = ['8.1.44']
+ign_tickets  = ['137089']
+ign_subsystem = ['OPC-UA']
+html_context = { # makes varaiables accessable in jinja
+    'years' : years,
+    'ign_versions': ign_versions,
+    'ign_subsystem': ign_subsystem,
+    'ign_tickets': ign_tickets
+}
