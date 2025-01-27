@@ -5,9 +5,12 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import json
+from os import listdir
+from os.path import isfile, join
 
 project = 'IGN-Docs'
-copyright = '2024, Jared Arnold'
+copyright = '2025, Jared Arnold'
 author = 'Jared Arnold'
 release = '1.0.0'
 
@@ -22,6 +25,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'links.rst']
 
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 html_theme = 'sphinx_nefertiti'
 #html_theme = 'classic' # good for testing against actual theme
 
@@ -31,6 +36,8 @@ html_css_files = [
     'css/text_colors.css'
 ]
 
+
+# JINJA Config #
 # make rst_epilog a variable, so you can add other epilog parts to it
 rst_epilog =""
 # Read link all targets from file
@@ -40,15 +47,6 @@ with open('links.rst') as f:
 with open('s5defs.rst') as f:
      rst_epilog += f.read()
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-
-# Starting doc roots...jinja variables
-years = ['2021', '2022', '2023']
-ign_versions = ['8.1.44']
-ign_tickets  = ['137089']
-ign_subsystem = ['OPC-UA']
 
 # allow templating of rst files using configurations
 # https://ericholscher.com/blog/2016/jul/25/integrating-jinja-rst-sphinx/
@@ -68,9 +66,27 @@ def rstjinja(app, docname, source):
 def setup(app):
    app.connect("source-read", rstjinja)
 
+# Build specs and put them in html_context for jijna also
+SPEC_PATH = './specs'
+SPECS = [f[:-5] for f in listdir(SPEC_PATH) if isfile(join(SPEC_PATH, f))]
+spec_data = {}
+for spec in SPECS:
+  with open('%s/%s.json' % (SPEC_PATH, spec), 'r') as f:
+      spec_data[spec] = json.load(f)
+
+print(spec_data['years'])
+years             = spec_data['years'] 
+ign_major_version = spec_data['ign_major_version'] 
+ign_versions      = spec_data['ign_versions'] 
+ign_tickets       = spec_data['ign_tickets']
+ign_loggers       = spec_data['ign_loggers']
+ign_subsystem     = spec_data['ign_subsystem']
+
 html_context = { # makes varaiables accessable in jinja
-    'years' : years,
-    'ign_versions': ign_versions,
+    'years' :        years,
+    'ign_versions':  ign_versions,
     'ign_subsystem': ign_subsystem,
-    'ign_tickets': ign_tickets
+    'ign_tickets':   ign_tickets,
+    'ign_loggers':   ign_loggers,
+    'ign_major_version': ign_major_version
 }
