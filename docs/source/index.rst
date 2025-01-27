@@ -15,10 +15,11 @@ Welcome to IGN-Docs's documentation!
    Archive Docs
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1 
    :caption: Contents:
 
-   1098T/1098t
+   1098T/1098t.rst
+   Tickets/tickets
 
 
 
@@ -28,6 +29,14 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Colors
+======
+
+* :orangebold:`hey`
+* :redbold:`hey`
+* :greenbold:`This is a sentence`
+* Hello there :redbold:`confusing but this submission is 2024.`
 
 Tickets:
 ========

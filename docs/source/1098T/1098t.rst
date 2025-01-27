@@ -15,7 +15,7 @@
 
 {% for item in years %}
 
-   {{ item }}/{{ item }}
+   {{ item }}/{{ item }}.rst
 
 {% endfor %}
 

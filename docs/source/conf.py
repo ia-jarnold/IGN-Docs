@@ -22,17 +22,27 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'links.rst']
 
+html_theme = 'sphinx_nefertiti'
+#html_theme = 'classic' # good for testing against actual theme
+
+html_static_path = ['_static', '_static/html']
+html_css_files = [
+    'css/classic_ext.css',
+    'css/text_colors.css'
+]
+
 # make rst_epilog a variable, so you can add other epilog parts to it
 rst_epilog =""
 # Read link all targets from file
 with open('links.rst') as f:
     rst_epilog += f.read()
 
+with open('s5defs.rst') as f:
+     rst_epilog += f.read()
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_nefertiti'
-html_static_path = ['_static', '_static/html']
 
 # Starting doc roots...jinja variables
 years = ['2021', '2022', '2023']

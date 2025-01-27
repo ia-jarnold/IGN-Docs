@@ -1,0 +1,25 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+div.document {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+
+div.document:after {
+  content: "";
+  display: block;
+}
+
+div.footer, div.document:after {
+  height: 100px;
+}
+
+div.footer {
+  background-color: #11303d;
+}
