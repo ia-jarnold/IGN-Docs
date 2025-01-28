@@ -10,3 +10,8 @@
 .. IA User Manual
 
 .. _IA User Manual (8.1): https://docs.inductiveautomation.com/docs/8.1/intro 
+
+
+.. Ignition KBA
+
+.. _IA KBA Loggers: https://support.inductiveautomation.com/hc/en-us/articles/6277185790861-Logger-Index

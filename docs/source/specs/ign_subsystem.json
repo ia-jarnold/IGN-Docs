@@ -1,3 +1,19 @@
 [
-    "OPC-UA"
+    "OPC",
+    "Provider",
+    "Designer",
+    "Historian",
+    "Vision_Client_Launcher",
+    "Perspective_Workstation",
+    "Gateway_Network",
+    "Redundancy",
+    "DB",
+    "AUTH",
+    "Device",
+    "Project",
+    "Browser",
+    "Scripting",
+    "Notifications",
+    "Modules",
+    "License"
 ]

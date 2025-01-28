@@ -74,7 +74,6 @@ for spec in SPECS:
   with open('%s/%s.json' % (SPEC_PATH, spec), 'r') as f:
       spec_data[spec] = json.load(f)
 
-print(spec_data['years'])
 years             = spec_data['years'] 
 ign_major_version = spec_data['ign_major_version'] 
 ign_versions      = spec_data['ign_versions'] 
