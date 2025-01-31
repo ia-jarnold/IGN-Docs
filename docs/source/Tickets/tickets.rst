@@ -2,7 +2,7 @@
 Tickets
 =======
 
-{% for item in ign_tickets %}
+{% for item in test %}
 
 * {{ item }}
 
