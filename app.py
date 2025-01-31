@@ -7,6 +7,7 @@ import subprocess
 import os
 import os.path
 import logging
+import shutil
 
 LOG_PATH = './logs'
 DOCS_DIR = './docs'
@@ -24,17 +25,31 @@ app = Flask(__name__, static_url_path='/', static_folder=STATIC_DIR)
 gunicorn_logger = logging.getLogger('gunicorn.error')
 app.logger.handlers = gunicorn_logger.handlers
 app.logger.setLevel(gunicorn_logger.level)
-#app.config['PROPAGATE_EXCEPTIONS'] = False # not sure yet...
+app.config['PROPAGATE_EXCEPTIONS'] = False # not sure yet...
 
 gunicorn_logger.info('Starting Flask Server')
 
+def clean_directory(dir_path):
+
+    gunicorn_logger.info('cleaning')
+
+    gunicorn_logger.info(dir_path)
+    for root, dirs, files in os.walk(dir_path):
+        for f in files:
+            os.unlink(os.path.join(root, f))
+        for d in dirs:
+            shutil.rmtree(os.path.join(root, d))
 
 # will rebuild docs from source (docs/source -> docs/build/html)
 def build_docs():
 
     now = datetime.now().strftime(DATE_FMT)
+
+    clean_directory(BUILD_DIR + '/html/')
+    clean_directory(BUILD_DIR + '/doctrees/')
+
     with open(BUILD_LOG, 'w') as build_log:
-        p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log)
+        p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log, stderr=build_log)
         build_log.write('Finished ' + now + '\n')
 
 def archive_docs():

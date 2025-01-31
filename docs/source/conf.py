@@ -16,7 +16,7 @@ release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-extensions = ['sphinx_design']
+extensions = ['sphinx_design', 'sphinx_favicon']
 
 templates_path = ['_templates']
 
@@ -30,12 +30,15 @@ exclude_patterns = ['_build', 'links.rst']
 html_theme = 'sphinx_nefertiti'
 #html_theme = 'classic' # good for testing against actual theme
 
-html_static_path = ['_static', '_static/html']
+html_static_path = ['_static', '_static/html', '_static/images']
 html_css_files = [
     'css/classic_ext.css',
     'css/text_colors.css'
 ]
 
+favicons = [
+    'ignition_fav.png'
+]
 
 # JINJA Config #
 # make rst_epilog a variable, so you can add other epilog parts to it
@@ -75,11 +78,11 @@ for spec in SPECS:
       spec_data[spec] = json.load(f)
 
 years             = spec_data['years'] 
-ign_major_version = spec_data['ign_major_version'] 
 ign_versions      = spec_data['ign_versions'] 
 ign_tickets       = spec_data['ign_tickets']
 ign_loggers       = spec_data['ign_loggers']
 ign_subsystem     = spec_data['ign_subsystem']
+test              = [1,2,3,4,5,6]
 
 html_context = { # makes varaiables accessable in jinja
     'years' :        years,
@@ -87,5 +90,5 @@ html_context = { # makes varaiables accessable in jinja
     'ign_subsystem': ign_subsystem,
     'ign_tickets':   ign_tickets,
     'ign_loggers':   ign_loggers,
-    'ign_major_version': ign_major_version
+    'test'  :test
 }
