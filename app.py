@@ -31,9 +31,8 @@ gunicorn_logger.info('Starting Flask Server')
 
 def clean_directory(dir_path):
 
-    gunicorn_logger.info('cleaning')
+    gunicorn_logger.info('cleaning docs %s' % dir_path)
 
-    gunicorn_logger.info(dir_path)
     for root, dirs, files in os.walk(dir_path):
         for f in files:
             os.unlink(os.path.join(root, f))
@@ -53,8 +52,9 @@ def build_docs():
         build_log.write('Finished ' + now + '\n')
 
 def archive_docs():
+
     now = datetime.now().strftime(DATE_FMT)
-    p = subprocess.run(['tar', '-czvf', ARCHIVE_DIR + '/docs.tar.gz', STATIC_DIR], cwd = '.')
+    p = subprocess.run(['tar', '-czvf', ARCHIVE_DIR + '/docs_%s.tar.gz' % now, STATIC_DIR], cwd = '.')
 
 @app.route("/")
 @app.route("/docs")

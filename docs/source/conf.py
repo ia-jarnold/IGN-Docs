@@ -80,7 +80,7 @@ for spec in SPECS:
 years             = spec_data['years'] 
 ign_versions      = spec_data['ign_versions'] 
 ign_tickets       = spec_data['ign_tickets']
-ign_loggers       = spec_data['ign_loggers']
+ign_loggers       = sorted([ign_log.lower() for ign_log in spec_data['ign_loggers']])
 ign_subsystem     = spec_data['ign_subsystem']
 test              = [1,2,3,4,5,6]
 

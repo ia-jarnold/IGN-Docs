@@ -18,11 +18,11 @@ Welcome to IGN-Docs's
    :maxdepth: 1 
    :caption: Contents:
 
-   1098T/1098t.rst
    Tickets/tickets.rst
    Subsystem/subsystem.rst
    Versions/versions.rst
    Loggers/loggers.rst
+   Scripts/scripts.rst
 
 
 
@@ -40,11 +40,6 @@ Colors
 * :redbold:`hey`
 * :greenbold:`This is a sentence`
 * Hello there :redbold:`confusing but this submission is 2024.`
-
-Tickets:
-========
-
-* 133507
 
 Links
 =====
