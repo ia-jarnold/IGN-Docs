@@ -15,3 +15,11 @@
 .. Ignition KBA
 
 .. _IA KBA Loggers: https://support.inductiveautomation.com/hc/en-us/articles/6277185790861-Logger-Index
+
+.. Logging
+
+.. _Log4j Architecture: https://logging.apache.org/log4j/2.x/manual/architecture.html
+
+.. Devices
+
+.. _KepwareEX_v6_Manual: https://opcturkey.com/uploads/kepserverex-v6-manual.pdf
