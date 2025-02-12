@@ -65,14 +65,40 @@ Shell
 SQL
 ===
 
-.. dropdown:: MSSQL TCP Port
+.. dropdown:: MSSQL Express TCP Port
    :color: info
 
    | This can also be found in comp management under like properties of sql server. Tcp needs to be enabled after install.
 
-   .. code-block:: MSSQL
-
+   .. code-block:: SQL
+     
+      -- MSSQL
       USE master
       GO
       xp_readerrorlog 0, 1, N'Server is listening on'
       GO
+
+
+Powershell
+==========
+
+.. dropdown:: Keytool 
+   :color: info
+
+   | Check client certs, sometimes customers use a reuse able CN making it hard to identify which cert goes where.
+
+   .. code-block:: Powershell 
+      
+      $files = Get-ChildItem "C:\Users\jarnold\.ignition\clientlauncher-data\certificates\" -Filter \*.pem
+
+      Set-location "C:\Program Files\Inductive Automation\Vision Client Launcher\jre\bin\"
+      for ($i=0; $i -lt $files.Count; $i++) {
+          $outfile = $files[$i].FullName
+          echo ""
+          echo "START"
+          echo $outFile
+          .\keytool.exe -printcert -file $outFile 
+          echo "END"
+          echo ""
+      }
+
