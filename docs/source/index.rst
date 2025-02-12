@@ -23,6 +23,7 @@ Welcome to IGN-Docs's
    Versions/versions.rst
    Loggers/loggers.rst
    Scripts/scripts.rst
+   Markdown/markdown.md
 
 
 

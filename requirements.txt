@@ -3,3 +3,4 @@ flask
 sphinx-nefertiti
 sphinx-design
 sphinx-favicon
+myst-parser
