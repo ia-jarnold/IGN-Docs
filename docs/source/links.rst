@@ -7,6 +7,8 @@
 
 .. _IA Downloads: https://inductiveautomation.com/downloads/?utm_medium=Google-ad&utm_source=google-ad&utm_campaign=02-product-download&AdvertisingTouch=google-ad-product-download&Lead_Source=google-ad-product-download&gad_source=1&gclid=CjwKCAiA6t-6BhA3EiwAltRFGPVufNA5U0oX7OSAToBg_kKk_2Zfbv8wepOp4HOy2oxeN6wxpIAz-hoCzvgQAvD_BwE 
 
+.. _IA Lets Encrypt: https://inductiveautomation.com/resources/article/lets-encrypt-guide-for-ignition
+
 .. IA User Manual
 
 .. _IA User Manual (8.1): https://docs.inductiveautomation.com/docs/8.1/intro 
@@ -23,3 +25,7 @@
 .. Devices
 
 .. _KepwareEX_v6_Manual: https://opcturkey.com/uploads/kepserverex-v6-manual.pdf
+
+.. Microsoft Net
+
+.. _SMO Scripting Options: https://learn.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.smo.scriptingoptions?view=sql-smo-160 

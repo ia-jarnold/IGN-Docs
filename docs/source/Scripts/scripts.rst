@@ -2,6 +2,11 @@
 Scripts
 #######
 
+
+.. button-link:: http://192.168.163.128:5000/source
+
+   View Source
+
 Shell
 =====
 
@@ -27,7 +32,9 @@ Shell
 
 .. dropdown:: openssl examples 
    :color: info
-  
+ 
+   * `IA Lets Encrypt`_
+
    .. code-block:: Bash
       
       # print .pem
@@ -35,6 +42,11 @@ Shell
       
       ## convert from pem to crt
       openssl x509 -outform der -in ~/share/jarnold_host/Downloads/.pem -out ./def_pem.crt
+
+      # convert a PFX(personal exchange format) used to exchange pub/priv objects to it's
+      # private key and cert(public)
+      openssl pkcs12 -in filename.pfx -nocerts -out key.pem # private...
+      openssl pkcs12 -in filename.pfx -clcerts -nokeys -out cert.pem
 
 .. dropdown:: tar examples
    :color: info
@@ -101,4 +113,14 @@ Powershell
           echo "END"
           echo ""
       }
+
+
+.. dropdown:: MSSQL Generate Scripts 
+   :color: info
+
+   * `SMO Scripting Options`_
+
+   .. literalinclude:: mssql_generate_scripts.ps1
+      :language: powershell
+
 

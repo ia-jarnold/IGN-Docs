@@ -23,25 +23,25 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'links.rst']
+exclude_patterns = ['_build', 'links.rst', 's5defs.rst']
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-html_theme = 'sphinx_nefertiti'
-#html_theme = 'classic' # good for testing against actual theme
+#html_theme = 'sphinx_nefertiti'
+html_theme = 'classic' # good for testing against actual theme
 
 html_static_path = ['_static', '_static/html', '_static/images']
+#html_style = ['custom.css']
 html_css_files = [
-    'css/classic_ext.css',
-    'css/text_colors.css'
+    #'css/nefertiti_ext.css',
+    'css/text_colors.css',
+    'css/classic_ext.css'
 ]
 
 favicons = [
     'ignition_fav.png'
 ]
 
-# JINJA Config #
-# make rst_epilog a variable, so you can add other epilog parts to it
 rst_epilog =""
 # Read link all targets from file
 with open('links.rst') as f:
@@ -49,7 +49,6 @@ with open('links.rst') as f:
 
 with open('s5defs.rst') as f:
      rst_epilog += f.read()
-
 
 # allow templating of rst files using configurations
 # https://ericholscher.com/blog/2016/jul/25/integrating-jinja-rst-sphinx/
