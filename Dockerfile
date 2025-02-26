@@ -13,4 +13,4 @@ WORKDIR /app
 # copy everything into the image
 COPY . .
 
-CMD ["gunicorn", "--bind=0.0.0.0:5000","--error-logfile=-","--access-logfile=-","--log-level=Debug","app:app"]
+CMD ["gunicorn", "--bind=0.0.0.0:5000","--timeout=500","--error-logfile=-","--access-logfile=-","--log-level=Debug","app:app"]
