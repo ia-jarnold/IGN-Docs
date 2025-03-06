@@ -2,14 +2,28 @@
 Actions
 #######
 
-.. button-link:: http://192.168.163.128:5000/refresh
+.. grid:: 2
 
-   Refresh Docs
+   .. grid-item::
 
-.. button-link:: http://192.168.163.128:5000/archive
+     .. card::
 
-   Archive Docs
+        .. button-link:: http://192.168.163.128:5000/refresh
+           :color: info
 
-.. button-link:: http://192.168.163.128:5000/source
+           Refresh Docs
 
-   View Source 
+        ++++++
+        Will refresh the docs from source and navigate to the index page. 
+
+   .. grid-item::
+
+     .. card::
+
+        .. button-link:: http://192.168.163.128:5000/archive
+           :color: info
+
+           Archive Docs
+
+        ++++++
+        Will create a tar archive of the html docs in a configured archive directory. 
