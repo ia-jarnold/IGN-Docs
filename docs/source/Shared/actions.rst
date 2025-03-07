@@ -2,28 +2,19 @@
 Actions
 #######
 
+
 .. grid:: 2
 
-   .. grid-item::
+   .. grid-item-card::
+      :link: http://192.168.163.128:5000/refresh
+            
+      | :octicon:`issue-reopened;1em;sd-text-info` Will refresh the docs from source and navigate to the index page. 
 
-     .. card::
 
-        .. button-link:: http://192.168.163.128:5000/refresh
-           :color: info
+   .. grid-item-card::
+      :link: http://192.168.163.128:5000/archive
 
-           Refresh Docs
+      | :octicon:`file-zip;1em;sd-text-info` Will create a tar archive of the html docs in a configured archive directory. 
 
-        ++++++
-        Will refresh the docs from source and navigate to the index page. 
 
-   .. grid-item::
 
-     .. card::
-
-        .. button-link:: http://192.168.163.128:5000/archive
-           :color: info
-
-           Archive Docs
-
-        ++++++
-        Will create a tar archive of the html docs in a configured archive directory. 
