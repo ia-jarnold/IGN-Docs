@@ -5,6 +5,7 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+# ANY PRINT STATEMENTS IN HERE WILL SHOW UP IN THE PACKAGE_ROOT/logs/build_log
 import json
 from os import listdir
 from os.path import isfile, join
@@ -31,11 +32,13 @@ exclude_patterns = ['_build', 'links.rst', 's5defs.rst']
 html_theme = 'classic' # good for testing against actual theme
 
 html_static_path = ['_static', '_static/html', '_static/images']
-#html_style = ['custom.css']
+
+#https://sphinx-design.readthedocs.io/en/latest/badges_buttons.html
 html_css_files = [
     #'css/nefertiti_ext.css',
     'css/text_colors.css',
-    'css/classic_ext.css'
+    'css/classic_ext.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'
 ]
 
 favicons = [
@@ -69,11 +72,11 @@ def setup(app):
    app.connect("source-read", rstjinja)
 
 # Build specs and put them in html_context for jijna also
+# if editing spec directly hidden .swp files can sneak in so beware...will fail build
 SPEC_PATH = './specs'
 SPECS = [f[:-5] for f in listdir(SPEC_PATH) if isfile(join(SPEC_PATH, f))]
 spec_data = {}
 for spec in SPECS:
-  print(spec)
   with open('%s/%s.json' % (SPEC_PATH, spec), 'r') as f:
       spec_data[spec] = json.load(f)
 

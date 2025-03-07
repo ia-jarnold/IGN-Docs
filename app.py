@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import send_from_directory
+from flask import send_from_directory
 from flask import redirect, url_for
 from flask import request
 from datetime import datetime
@@ -111,7 +112,8 @@ def backup():
 
     gunicorn_logger.info('Archiving Docs in %s' % ARCHIVE_DIR) 
     archive_docs()
-    return redirect(url_for('index'))
+    return send_from_directory(ARCHIVE_DIR, 'docs.tar.gz', as_attachment=True)
+    #return redirect(url_for('index'))
 
 # build initial docs on server load if no index is there. for dev atm really
 if not os.path.isfile(STATIC_DIR + '/index.html'):

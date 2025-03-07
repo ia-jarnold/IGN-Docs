@@ -33,6 +33,8 @@ Colors
 * :redbold:`hey`
 * :greenbold:`This is a sentence`
 * Hello there :redbold:`confusing but this submission is 2024.`
+* An icon :fab:`gitkraken;sd-text-success fa-xl`, some more text.
+* An icon :fas:`skull;sd-text-danger`, some more text.
 
 Links
 =====
@@ -43,5 +45,5 @@ Links
 Sphinx Design
 =============
 
-:bdg:`plain badge`
+:bdg-primary:`plain badge`
 
