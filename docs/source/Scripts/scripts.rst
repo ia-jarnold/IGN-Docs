@@ -2,10 +2,7 @@
 Scripts
 #######
 
-
-.. button-link:: http://192.168.163.128:5000/source
-
-   View Source
+.. include:: ../Shared/actions.rst
 
 Shell
 =====
@@ -70,6 +67,8 @@ Shell
 .. dropdown:: Launch Kate
    :color: info
 
+   Accidently installed this with flatpak pkmgr I guess....prob not necessary...but nice gui ide for working in rst files. Can have spellcheck and stuff.
+
    .. code-block:: Bash
 
       flatpak run org.kde.kate
@@ -122,5 +121,13 @@ Powershell
 
    .. literalinclude:: mssql_generate_scripts.ps1
       :language: powershell
+
+.. dropdown:: curl/Invoke-WebRequest 
+   :color: info
+
+
+   .. code-block:: Powershell 
+
+      curl -Method PUT "http://localhost:9088/data/api/v1/projects/API Lesson" -Headers @{"Content-type"="application/json"} -Body '{"description":"hey"}' # body could be that IDictionary type maybe...@....
 
 
