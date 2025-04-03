@@ -10,25 +10,29 @@ import os.path
 import logging
 import shutil
 import urllib.parse
+import json
 
 LOG_PATH = './logs'
 DOCS_DIR = './docs'
 
 BUILD_LOG = LOG_PATH + '/build.log'
 BUILD_DIR = DOCS_DIR + '/build'
+RST_SOURCE = DOCS_DIR + '/source' # rst sources before build
+SPEC_DIR = RST_SOURCE + '/specs' # rst sources before build
 STATIC_DIR = BUILD_DIR + '/html' # docs are built from source to html
-SOURCE_DIR = STATIC_DIR + '/_sources'
+SOURCE_DIR = STATIC_DIR + '/_sources' # these are rst sources after build
 ARCHIVE_DIR = './tmp'
 
 DATE_FMT = "%m/%d/%Y %H:%M:%S"
 
 app = Flask(__name__, static_url_path='/', static_folder=STATIC_DIR)
+app.config['PROPAGATE_EXCEPTIONS'] = False # not sure yet...this was mentioned off hand with the below log combo.
+
 
 # not always the best but easy way to get all logs in 1 place...
 gunicorn_logger = logging.getLogger('gunicorn.error')
 app.logger.handlers = gunicorn_logger.handlers
 app.logger.setLevel(gunicorn_logger.level)
-app.config['PROPAGATE_EXCEPTIONS'] = False # not sure yet...
 
 gunicorn_logger.info('Starting Flask Server')
 
@@ -41,6 +45,7 @@ def _clean_directory(dir_path):
             os.unlink(os.path.join(root, f))
         for d in dirs:
             shutil.rmtree(os.path.join(root, d))
+
 
 # will rebuild docs from source (docs/source -> docs/build/html)
 # cleans old docs dir for full rebuild
@@ -55,7 +60,7 @@ def build_docs():
         p = subprocess.run(['make','html'], cwd = DOCS_DIR, stdout=build_log, stderr=build_log)
         build_log.write('Finished ' + now + '\n')
 
-def archive_docs(): # create a tarball of docs html/js/css etc...in tmp
+def archive_docs(): # create a tarball of docs html/js/css etc...ARCHIVE_DIR.
 
     p = subprocess.run(['tar', '-czvf', (ARCHIVE_DIR + '/docs.tar.gz'), STATIC_DIR], cwd = '.')
 
@@ -66,16 +71,16 @@ def read_source(request):
     # however some won't map 1-1 like /docs -> index...
     referer = request.headers['referer']
 
-    gunicorn_logger.info('Viewing ource file for %s' % referer)
+    gunicorn_logger.info('Viewing source file for %s' % referer)
 
     comps = urllib.parse.urlparse(referer)
     referer = comps.path
 
-    if  referer == '/docs' or referer == '/':
+    if  referer == '/docs' or referer == '/': # special cases
 
         return ('','index.rst.txt')
 
-    else:
+    else: # most derived cases...html path/referrer close to file path
 
         # break up referer(url that sent this request)url
         comps = referer.split('/') 
@@ -85,7 +90,33 @@ def read_source(request):
         srcfp = '/'.join(comps[:-1])
         return (srcfp, srcf)
 
+def update_links(request):
 
+    id = request.args.get('id')
+    link = request.args.get('link')
+
+    gunicorn_logger.info('Updating/Adding %s : %s' % (id, link))
+    with open('%s/links.json' % (SPEC_DIR), 'r') as f:
+        links_json = json.load(f)
+
+    # add the link
+    links_json[id] = link
+
+    # refresh json...
+    gunicorn_logger.info(str("%s") % links_json)
+    with open('%s/links.json' % (SPEC_DIR), 'w') as f:
+         json.dump(links_json, f)
+    
+    # loop through json and buuild links.rst in mem then write one time 
+    links_rst = "" # text...
+    for link_id in links_json:
+        links_rst += ".. _%s: %s\n" % (link_id, links_json[link_id])
+
+    gunicorn_logger.info(str("%s") % links_rst)
+    with open('%s/links.rst' % (RST_SOURCE), 'w') as f:
+        f.write(links_rst)
+
+# ROUTES
 @app.route("/")
 @app.route("/docs")
 def index():
@@ -104,6 +135,7 @@ def refresh():
 
     gunicorn_logger.info('Refreshing Docs..see build log in %s' % BUILD_LOG)
     build_docs()
+
     return redirect(url_for('index'))
 
 @app.route("/backup")
@@ -112,8 +144,21 @@ def backup():
 
     gunicorn_logger.info('Archiving Docs in %s' % ARCHIVE_DIR) 
     archive_docs()
+
+    # build a new archive and serve.
     return send_from_directory(ARCHIVE_DIR, 'docs.tar.gz', as_attachment=True)
-    #return redirect(url_for('index'))
+
+@app.route("/ulink")
+def ulink():
+   
+    gunicorn_logger.info('Adding/updating link') 
+    update_links(request)
+
+    gunicorn_logger.info('Rebuilding Docs') 
+    build_docs()
+
+    # build a new archive and serve.
+    return redirect(url_for('index'))
 
 # build initial docs on server load if no index is there. for dev atm really
 if not os.path.isfile(STATIC_DIR + '/index.html'):

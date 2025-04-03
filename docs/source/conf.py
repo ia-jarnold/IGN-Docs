@@ -77,6 +77,8 @@ SPEC_PATH = './specs'
 SPECS = [f[:-5] for f in listdir(SPEC_PATH) if isfile(join(SPEC_PATH, f))]
 spec_data = {}
 for spec in SPECS:
+
+  print(spec)
   with open('%s/%s.json' % (SPEC_PATH, spec), 'r') as f:
       spec_data[spec] = json.load(f)
 

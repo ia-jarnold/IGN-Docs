@@ -8,4 +8,4 @@
 
 ### rst very parsable and readable I believe this supports classic markdown with small extension setting also.
 
-## When I did all the state and fed reproting for cccco each report would have a workflow template gereated for each term like our ticket notes in zendesk and I would just keep filling it out and adding depth and evidense until it was basically just the answer after a bit. Not sure how feasable across tickets that is, much larger specs prob need good scenarios that highligh ignition in top down states(traceable).
+## When I did all the state and fed reproting for cccco each report would have a workflow template generated for each term like our ticket notes in zendesk and I would just keep filling it out and adding depth and evidence until it was basically just the answer after a bit. Not sure how feasable across tickets that is, much larger specs prob need good scenarios that highlight ignition in top down states(traceable).
