@@ -17,7 +17,12 @@ release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-extensions = ['sphinx_design', 'sphinx_favicon', 'myst_parser']
+extensions = [ 'sphinx_design',  # add dropdowns/cards/grids...
+               'sphinx_favicon', # adds a favicon
+               'myst_parser', # add markdown support
+               'sphinx.ext.autosectionlabel', # Internal links(H1/H2/H3)
+               'sphinx.ext.extlinks' # helps template external links link ign java docs
+             ] # ass :ref:`` header links
 
 templates_path = ['_templates']
 
@@ -83,10 +88,12 @@ for spec in SPECS:
       spec_data[spec] = json.load(f)
 
 years             = spec_data['years'] 
+links             = spec_data['links']
 ign_versions      = spec_data['ign_versions'] 
 ign_tickets       = spec_data['ign_tickets']
 ign_loggers       = sorted([ign_log.lower() for ign_log in spec_data['ign_loggers']])
 ign_subsystem     = spec_data['ign_subsystem']
+links             = spec_data['links']
 test              = [1,2,3,4,5,6]
 
 html_context = { # makes varaiables accessable in jinja
@@ -95,5 +102,10 @@ html_context = { # makes varaiables accessable in jinja
     'ign_subsystem': ign_subsystem,
     'ign_tickets':   ign_tickets,
     'ign_loggers':   ign_loggers,
+    'links'  :links,
     'test'  :test
+}
+
+extlinks = {
+  'ign_java_doc_8.1' : ('https://files.inductiveautomation.com/sdk/javadoc/ignition81/%s/index.html', '%s IGN Java docs' )
 }

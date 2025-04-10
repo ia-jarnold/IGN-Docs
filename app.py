@@ -94,13 +94,31 @@ def update_links(request):
 
     id = request.args.get('id')
     link = request.args.get('link')
+    remove_link = request.args.get('remove_link')
 
+    gunicorn_logger.info('Remove %s' % str(remove_link))
     gunicorn_logger.info('Updating/Adding %s : %s' % (id, link))
     with open('%s/links.json' % (SPEC_DIR), 'r') as f:
         links_json = json.load(f)
 
-    # add the link
-    links_json[id] = link
+    # Beware here be user sting input................................
+    if id is None or \
+       id == "" or \
+       ((link is None or link == "") and remove_link is None):
+
+        gunicorn_logger.info('No link info provided')
+        return
+
+    # more sanitation... we know we have somthing...
+    id = str(id).strip()
+    link = str(link).strip()
+
+
+    if remove_link is not None: # may need to cast
+        del links_json[id]
+    else:
+        # otherwise add/update the link
+        links_json[id] = link
 
     # refresh json...
     gunicorn_logger.info(str("%s") % links_json)
