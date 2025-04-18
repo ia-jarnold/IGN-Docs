@@ -101,9 +101,6 @@ def update_links(request):
 
     gunicorn_logger.info('Managing %s : %s' % (id, link))
     gunicorn_logger.info('Remove %s' % str(remove_link))
-    with open('%s/links.json' % (SPEC_DIR), 'r') as f:
-        links_json = json.load(f)
-
     # Beware here be user sting input................................
     if id is None or \
        id == "" or \
@@ -116,6 +113,11 @@ def update_links(request):
     id = str(id).strip()
     link = str(link).strip()
 
+    # start process
+    with open('%s/links.json' % (SPEC_DIR), 'r') as f:
+        links_json = json.load(f)
+   
+    # sort links by id
 
     if remove_link is not None: # may need to cast
         del links_json[id]
@@ -123,16 +125,19 @@ def update_links(request):
         # otherwise add/update the link
         links_json[id] = link
 
-    # refresh json...
+    links_json = { k: links_json[k] for k in sorted(links_json) }
+
+    # refresh json...spec
     gunicorn_logger.info(str("%s") % links_json)
     with open('%s/links.json' % (SPEC_DIR), 'w') as f:
          json.dump(links_json, f)
     
-    # loop through json and buuild links.rst in mem then write one time 
+    # loop through json and build links.rst in mem then write one time sphinx uses this to populate links
     links_rst = "" # text...
     for link_id in links_json:
         links_rst += ".. _%s: %s\n" % (link_id, links_json[link_id])
 
+    # write array lines to buffer.
     gunicorn_logger.info(str("%s") % links_rst)
     with open('%s/links.rst' % (RST_SOURCE), 'w') as f:
         f.write(links_rst)
