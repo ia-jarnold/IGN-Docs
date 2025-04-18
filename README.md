@@ -2,10 +2,22 @@
 
 ## Docker/Gunicorn/Flask/Sphinx Documentation
 
-### Prupose atm is to have a place where when I find intersections between Ignition Versions/Tickets/Subsystems/Loggers I can add them quickly in an organized fashion. If something is documnented already it gets a link in links.rst etc and organized appropriately.
+## Actions
 
-### Good for saving code an scripts quickly and can always be contiusously programmed and templated.
+ * If connected to the server can run these...flask app.
+  * Can rebuild docs to see changes live.
+  * can donwload static html for viewing in browser.
+  * can manage static links. This is a form of spec management
+    * link are kep in a spec(json file)(may be a db)(persistent layer)
+  * Todo more general spec additions versions, etc...
 
-### rst very parsable and readable I believe this supports classic markdown with small extension setting also.
+## Links
 
-## When I did all the state and fed reproting for cccco each report would have a workflow template generated for each term like our ticket notes in zendesk and I would just keep filling it out and adding depth and evidence until it was basically just the answer after a bit. Not sure how feasable across tickets that is, much larger specs prob need good scenarios that highlight ignition in top down states(traceable).
+ * External Links
+   * templated
+   * static
+ * Internal refs
+
+## Starting to add subsystem splash pages.
+
+## Added some Docs

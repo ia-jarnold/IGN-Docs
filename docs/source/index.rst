@@ -30,6 +30,11 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+Drives
+======
+
+* :tickets_archive:`Gateway`
+
 Internal Links
 ==============
 

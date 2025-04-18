@@ -46,6 +46,10 @@ def _clean_directory(dir_path):
         for d in dirs:
             shutil.rmtree(os.path.join(root, d))
 
+def _get_referer(request):
+    referer = request.headers['referer']
+    comps = urllib.parse.urlparse(referer)
+    referer = comps.path
 
 # will rebuild docs from source (docs/source -> docs/build/html)
 # cleans old docs dir for full rebuild
@@ -70,11 +74,10 @@ def read_source(request):
     # referer is like the browser page/url that made source api call....
     # however some won't map 1-1 like /docs -> index...
     referer = request.headers['referer']
-
-    gunicorn_logger.info('Viewing source file for %s' % referer)
-
     comps = urllib.parse.urlparse(referer)
     referer = comps.path
+
+    gunicorn_logger.info('Viewing source file for %s' % referer)
 
     if  referer == '/docs' or referer == '/': # special cases
 
@@ -96,8 +99,8 @@ def update_links(request):
     link = request.args.get('link')
     remove_link = request.args.get('remove_link')
 
+    gunicorn_logger.info('Managing %s : %s' % (id, link))
     gunicorn_logger.info('Remove %s' % str(remove_link))
-    gunicorn_logger.info('Updating/Adding %s : %s' % (id, link))
     with open('%s/links.json' % (SPEC_DIR), 'r') as f:
         links_json = json.load(f)
 

@@ -41,6 +41,6 @@ Actions
             <label style="width: 95px">Remove?</label>
             <input type="checkbox" name="remove_link" aria-labelledby="search-documentation" value="True" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/ style="width: 20px;">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="submit" value="Manage Link" class="sd-card" />
+            <input type="submit" value="Manage Link" class="sd-card sd-card-hover" />
           </form>
 
