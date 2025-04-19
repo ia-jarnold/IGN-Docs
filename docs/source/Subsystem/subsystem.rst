@@ -9,3 +9,5 @@ Subsystem
    EAM/eam.rst
    Provider/provider.rst
    OPC/opc.rst
+   Redundancy/redundancy.rst
+   GAN/gan.rst
