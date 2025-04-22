@@ -11,3 +11,4 @@ Subsystem
    OPC/opc.rst
    Redundancy/redundancy.rst
    GAN/gan.rst
+   Webserver/webserver.rst
