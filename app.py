@@ -51,6 +51,19 @@ def _get_referer(request):
     comps = urllib.parse.urlparse(referer)
     referer = comps.path
 
+def _write_links_rst(links_json): # build links.rst from links.json spec.
+
+    # loop through json and build links.rst in mem then write one time sphinx uses this to populate links
+    links_rst = "" # text...
+    for link_id in links_json:
+        links_rst += ".. _%s: %s\n" % (link_id, links_json[link_id])
+
+    # write array lines to buffer.
+    gunicorn_logger.info(str("%s") % links_rst)
+    with open('%s/links.rst' % (RST_SOURCE), 'w') as f:
+        f.write(links_rst)
+
+
 # will rebuild docs from source (docs/source -> docs/build/html)
 # cleans old docs dir for full rebuild
 def build_docs():
@@ -93,7 +106,7 @@ def read_source(request):
         srcfp = '/'.join(comps[:-1])
         return (srcfp, srcf)
 
-def update_links(request):
+def refresh_links(request): # Action(request) based
 
     id = request.args.get('id')
     link = request.args.get('link')
