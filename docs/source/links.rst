@@ -1,3 +1,4 @@
+.. _Chrome WS Inspect Overview: https://developer.chrome.com/docs/devtools/network/reference#frames
 .. _Cirrus Link Loggers: https://docs.chariot.io/display/CLD80/Loggers+for+MQTT+Modules+in+the+Ignition+gateway+logs
 .. _Enterprise Support Confluence: https://inductiveautomation.atlassian.net/wiki/spaces/SUP/pages/3690496006/Enterprise+Care
 .. _HSTS Spec: https://www.chromium.org/hsts/
@@ -7,9 +8,11 @@
 .. _IA Hardening Guide: https://inductiveautomation.com/resources/article/ignition-security-hardening-guide
 .. _IA KBA IDB Reference (8.1): https://support.inductiveautomation.com/hc/en-us/articles/7653670012045-A-Reference-for-Ignition-s-Internal-Database-Tables
 .. _IA KBA Loggers: https://support.inductiveautomation.com/hc/en-us/articles/6277185790861-Logger-Index
+.. _IA KBA SSL: https://support.inductiveautomation.com/hc/en-us/articles/4885522461709-Understanding-SSL-in-Ignition
 .. _IA KBA Websockets: https://support.inductiveautomation.com/hc/en-us/articles/4436255099533-Websockets-in-Ignition
 .. _IA Knowledge Base: https://support.inductiveautomation.com/hc/en-us/sections/360010019951-Knowledge-Base
 .. _IA Lets Encrypt: https://inductiveautomation.com/resources/article/lets-encrypt-guide-for-ignition
+.. _IA Server Sizing and Arch Guide: https://inductiveautomation.com/resources/article/ignition-server-sizing-and-architecture-guide
 .. _IA UM 8.1 Appendix: https://www.docs.inductiveautomation.com/docs/8.1/appendix
 .. _IA UM 8.1 Redundancy: https://www.docs.inductiveautomation.com/docs/8.1/platform/ignition-redundancy
 .. _IA UM 8.1 Version Updates: https://docs.inductiveautomation.com/docs/8.1/new-in-this-version
@@ -23,4 +26,6 @@
 .. _SELinux: https://en.wikipedia.org/wiki/Security-Enhanced_Linux#:~:text=SELinux%20is%20a%20set%20of,involved%20with%20security%20policy%20enforcement.
 .. _SMO Scripting Options: https://learn.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.smo.scriptingoptions?view=sql-smo-160
 .. _Vertech Alarm Pipline Troubleshooting: https://www.vertech.com/blog/troubleshoot-ignition-alarm-pipelines-like-a-pro
-.. _Web Socket Debugging: https://stackoverflow.com/questions/5751495/debugging-websocket-in-google-chrome
+.. _Websocket Debugging: https://stackoverflow.com/questions/5751495/debugging-websocket-in-google-chrome
+.. _Websocket KeepAlive and Latency: https://websockets.readthedocs.io/en/stable/topics/keepalive.html
+.. _Wireshark Websocket Wiki: https://wiki.wireshark.org/WebSocket
