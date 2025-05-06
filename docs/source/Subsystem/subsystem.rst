@@ -12,3 +12,4 @@ Subsystem
    Redundancy/redundancy.rst
    GAN/gan.rst
    Webserver/webserver.rst
+   Client/client.rst

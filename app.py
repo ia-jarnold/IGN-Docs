@@ -191,7 +191,7 @@ def backup():
 def ulink():
    
     gunicorn_logger.info('Adding/updating link') 
-    update_links(request)
+    refresh_links(request)
 
     gunicorn_logger.info('Rebuilding Docs') 
     build_docs()

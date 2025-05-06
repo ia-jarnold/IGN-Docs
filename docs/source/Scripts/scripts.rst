@@ -4,6 +4,85 @@ Scripts
 
 .. include:: ../Shared/actions.rst
 
+Ignition
+========
+
+.. dropdown:: Auto Thread Dumps Vison based on connectivity 
+   :color: info
+
+   | I run this in a client timer script on an interval.
+
+   .. code-block:: python
+
+      # should verify the timer 1 sec may be to much but inline with Tag Group changes etc. Soft marker.
+      import time
+      import json
+      
+      # Type will depend on metric.
+      CONNECT_TIMEOUT = 10000 # Calibrate me if necessary
+      SOCKET_TIMEOUT = 10000 # Calibrate me if necessary
+      METRIC_NAME = 'VisionClientConnectivityStatus' # depends on metric
+      
+      ts = system.date.now()
+      ts_str = system.date.format(ts,"yy-MM-dd-HH-mm-ss")
+      
+      # you may have to test which root dir vision client can write too I beleive C:\ is fine since jre is installed under Program Files.
+      try:
+      	#https://www.docs.inductiveautomation.com/docs/8.1/appendix/scripting-functions/system-util/system-util-getGatewayStatus#code-examples
+      	#gw_status = system.util.getGatewayStatus('http://ip:port', CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+      	gw_status = system.util.getGatewayStatus('http://IP:PORT/main') # CONFIGURE ME!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      except:
+      	METRIC_NAME = 'VisionFailedToConnect' #update Metric never made it.
+      	threads_json = json.loads(system.util.threadDump().replace('\n',''))
+       	with open('C:\%s-%s.json' % (METRIC_NAME, ts_str), 'w') as fp:
+      		json.dump(threads_json, fp)
+      	return # critial
+      	
+      if gw_status != 'RUNNING' # made it but bad...not as critical...
+      
+        threads_json = json.loads(system.util.threadDump().replace('\n',''))
+      
+        with open('C:\%s-%s.json' % (METRIC_NAME, ts_str), 'w') as fp:
+                json.dump(threads_json, fp)
+      
+      else: # steady state can add other steady state collections here similarly.
+        pass
+
+      
+.. dropdown:: Auto Thread Dumps based on Metrics
+   :color: info
+
+   | These Are put in tag change scripts and dpepenting on state will take thread dump. on/off or off/on etc...
+
+   .. code-block:: python
+      
+      import time
+      import json
+      
+      THRESHHOLD = 10 # Depends on metric.
+      METRIC_NAME = 'QueriesPerSecond' # depends on metric
+      
+      ts = system.date.now()
+      ts_str = system.date.format(ts,"yy-MM-dd-HH-mm-ss")
+      
+      if previousValue.value < THRESHHOLD and not currentValue.value >= THRESHHOLD: # Up
+      	
+      	threads_json = json.loads(system.util.threadDump().replace('\n',''))
+      	
+      	with open('C:\%s-%s.json' % (METRIC_NAME, ts_str), 'w') as fp:
+      		json.dump(threads_json, fp, indent=4)
+      		
+      elif not previousValue.value >= THRESHHOLD and currentValue.value < THRESHHOLD: # Down
+      	
+      	threads_json = json.loads(system.util.threadDump().replace('\n',''))
+      	
+      	with open('C:\%s-%s.json' % (METRIC_NAME, ts_str), 'w') as fp:
+      		json.dump(threads_json, fp, indent=4)
+      		
+      else: # steady state
+      	pass
+
+
 Shell
 =====
 
@@ -130,4 +209,11 @@ Powershell
 
       curl -Method PUT "http://localhost:9088/data/api/v1/projects/API Lesson" -Headers @{"Content-type"="application/json"} -Body '{"description":"hey"}' # body could be that IDictionary type maybe...@....
 
+.. dropdown:: Tail Logs 
+   :color: info
+
+
+   .. code-block:: Powershell 
+
+       Get-Content -Path "C:\Program Files\Inductive Automation\Ignition2\logs\wrapper.log" -Wait -Tail 100
 
