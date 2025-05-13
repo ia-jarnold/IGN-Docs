@@ -9,6 +9,7 @@
 .. _IA KBA IDB Reference (8.1): https://support.inductiveautomation.com/hc/en-us/articles/7653670012045-A-Reference-for-Ignition-s-Internal-Database-Tables
 .. _IA KBA Loggers: https://support.inductiveautomation.com/hc/en-us/articles/6277185790861-Logger-Index
 .. _IA KBA SSL: https://support.inductiveautomation.com/hc/en-us/articles/4885522461709-Understanding-SSL-in-Ignition
+.. _IA KBA Vision Client Troubleshooting: https://support.inductiveautomation.com/hc/en-us/articles/5876672308877-Vision-Client-Unresponsive
 .. _IA KBA Websockets: https://support.inductiveautomation.com/hc/en-us/articles/4436255099533-Websockets-in-Ignition
 .. _IA Knowledge Base: https://support.inductiveautomation.com/hc/en-us/sections/360010019951-Knowledge-Base
 .. _IA Lets Encrypt: https://inductiveautomation.com/resources/article/lets-encrypt-guide-for-ignition
@@ -25,6 +26,7 @@
 .. _OPC_COM_5_Tips: https://www.opcti.com/opc-dcom-five-tips.aspx
 .. _SELinux: https://en.wikipedia.org/wiki/Security-Enhanced_Linux#:~:text=SELinux%20is%20a%20set%20of,involved%20with%20security%20policy%20enforcement.
 .. _SMO Scripting Options: https://learn.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.smo.scriptingoptions?view=sql-smo-160
+.. _Selenium Login Example: https://www.browserstack.com/guide/login-automation-using-selenium-webdriver
 .. _Vertech Alarm Pipline Troubleshooting: https://www.vertech.com/blog/troubleshoot-ignition-alarm-pipelines-like-a-pro
 .. _Websocket Debugging: https://stackoverflow.com/questions/5751495/debugging-websocket-in-google-chrome
 .. _Websocket KeepAlive and Latency: https://websockets.readthedocs.io/en/stable/topics/keepalive.html

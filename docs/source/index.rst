@@ -9,7 +9,6 @@ Welcome to IGN-Docs's
 
 .. toctree::
    :maxdepth: 1 
-   :caption: Contents:
 
    Tickets/tickets.rst
    Subsystem/subsystem.rst
