@@ -94,8 +94,15 @@ Gateway Scripts
 Selenium Scripts
 ================
 
+* `Selenium Locating Elements`_
+* `Selenium Login Example`_
+* `Python Multiprocessing Library`_
+* `Python Multithreading Examples`_
+
 .. dropdown:: Selenium with Async 
    :color: info
+
+   | The below script runs all sessions async on a single thread but the above threading libraries help can manange/scale this. cron/docker/scheduled tasks/background tasks also work.
 
    .. literalinclude:: selenium_async.py 
       :language: python 
@@ -155,8 +162,8 @@ Selenium Scripts
       
       async def run_session(use_proxy=False, proxy_list=None):
       
-          username = "qa-test"
-          password = "iggyLovesIgnition"
+          username = "***"
+          password = "****"
          
           session_id = uuid.uuid4()
       
@@ -180,7 +187,7 @@ Selenium Scripts
       
       
                   try:
-                      driver.get("https://everywhere.inductiveautomation.com/")
+                      driver.get("url to root page of app")
                       print('%s using %s proxy' % (session_id, proxy))
                       break
                   except Exception as e:
@@ -197,7 +204,7 @@ Selenium Scripts
                   print('error creating driver')
       
               try:
-                  driver.get("https://everywhere.inductiveautomation.com/")
+                  driver.get("************url to root page*************")
               except:
                      print('Error creating opening app %s' % proxy)
       

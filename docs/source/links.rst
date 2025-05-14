@@ -24,8 +24,11 @@
 .. _Log4j Architecture: https://logging.apache.org/log4j/2.x/manual/architecture.html
 .. _Nagelfar Syntax: https://nagelfar.sourceforge.net/
 .. _OPC_COM_5_Tips: https://www.opcti.com/opc-dcom-five-tips.aspx
+.. _Python Multiprocessing Library: https://docs.python.org/3/library/multiprocessing.html
+.. _Python Multithreading Examples: https://www.geeksforgeeks.org/multithreading-python-set-1/
 .. _SELinux: https://en.wikipedia.org/wiki/Security-Enhanced_Linux#:~:text=SELinux%20is%20a%20set%20of,involved%20with%20security%20policy%20enforcement.
 .. _SMO Scripting Options: https://learn.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.smo.scriptingoptions?view=sql-smo-160
+.. _Selenium Locating Elements: https://selenium-python.readthedocs.io/locating-elements.html#locating-elements-by-css-selectors
 .. _Selenium Login Example: https://www.browserstack.com/guide/login-automation-using-selenium-webdriver
 .. _Vertech Alarm Pipline Troubleshooting: https://www.vertech.com/blog/troubleshoot-ignition-alarm-pipelines-like-a-pro
 .. _Websocket Debugging: https://stackoverflow.com/questions/5751495/debugging-websocket-in-google-chrome
