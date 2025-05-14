@@ -8,17 +8,18 @@ import uuid
 
 ###############################################################################################
 # 
-# await asyncio.sleep(0) # * triggers next move in next session  so lots of sessions got
+# await asyncio.sleep(0)  * triggers next move in next session  so lots of sessions got
 #                           through there routines quickly every move has some wait time 
 #                           that must be considered a move is like a find click rerender.
 #                           or maybe like a couple navs on a page per session...
 #                         * selenium has built in 'WebDriverWait' that I believes does 
 #                           them implicitly also
 #                         * may execute session moves out of order have not seen yet
-# await asyncio.sleep(4) # * I believe wait's 4 secs before next move in next session 
-#                            each session goes thorugh this routine +sec I believe in order.
-# time.sleep            # this will block event loop and all moves on seesion that use it
-#                       # have to finish before next can go. could be useful
+#
+# await asyncio.sleep(4)  * I believe wait's 4 secs before next move in next session 
+#                           each session goes thorugh this routine +sec I believe in order.
+# time.sleep              * this will block event loop and all moves on seesion that use it
+#                         * have to finish before next can go. could be useful
 #
 # As sessions increase one may be more realistic then the other at certain time.
 #
@@ -40,8 +41,8 @@ ALL_HEADLESS = True # if False will run first as non-headless for testing etc...
 
 async def run_session( headless=True ):
 
-    username = "qa-test"
-    password = "iggyLovesIgnition"
+    username = "*****"
+    password = "******"
   
     # can pull these from the webdriver obj as well pretty sure.
     session_id = uuid.uuid4()
@@ -53,8 +54,9 @@ async def run_session( headless=True ):
         if headless:
             options.headless = options.add_argument("--headless=new")
        
-        # newer selenium tries to handle this but have not use it yet now the requirements
-        # here just find the driver for you chrome. Check in Chrome->settings->about...135/136/137...etc
+        # newer selenium tries to handle this but have not used it yet for now the requirements
+        # here just find the driver for your chrome. Check in Chrome->settings->about...135/136/137...etc
+        # goggle and may be chat will find it...
         cService = webdriver.ChromeService(executable_path=u"C:/Users/jarnold/chromedriver-win64/136/chromedriver-win64/chromedriver.exe")
         driver   = webdriver.Chrome(service = cService, options = options)
 
@@ -66,7 +68,7 @@ async def run_session( headless=True ):
     try:
 
         driver.set_window_size(340, 695) # set a mobile window size.
-        driver.get("https://everywhere.inductiveautomation.com/")
+        driver.get("*********************")
 
     except: 
         print('Error creating opening app/sizing')
@@ -117,7 +119,7 @@ async def run_session( headless=True ):
     # near by tabs back and fourth. can add more...
     # basically tmeplated
     #'//*[@id="app-container"]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[1]/div/div[2]/div[2]/div[******]/div'
-    try: # kristens testing
+    try:
         nearby_row = driver.find_element(By.XPATH, '//*[@id="app-container"]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div')
         nearby_row.click()
         await asyncio.sleep(4)
@@ -131,7 +133,7 @@ async def run_session( headless=True ):
     except:
         print('could not find back arrow')
 
-    try: # revloution byte
+    try:
         nearby_row = driver.find_element(By.XPATH, '//*[@id="app-container"]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
         nearby_row.click()
         await asyncio.sleep(4)
@@ -157,6 +159,7 @@ async def run_session( headless=True ):
 
     # navigate back to home
     try:
+
         #'//*[@id="app-container"]/div/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[2]/div/div[2]/div[2]/div[*******]' posts spec looks like we can use data components also they are in a lot of divs...
         hrm = driver.find_element(By.XPATH, '//*[@id="app-container"]/div/div[2]/div[2]/div[2]/div[1]/div/div[2]/div[1]')
         hrm.click()
@@ -173,7 +176,6 @@ async def run_session( headless=True ):
         back = driver.find_element(By.CSS_SELECTOR, '[data-component-path="R[0].0:0:0"]')
         back.click()
         await asyncio.sleep(20) # observe map goodness.
-
 
     except:
         print('could not navigate to home or find homescreen elements')
@@ -203,7 +205,7 @@ async def main():
     tasks = []
     for i in range(0, NUM_SESSIONS):
         if i == 0:
-            tasks.append( asyncio.create_task(run_session(headless=SINGLE_NON_HEADLESS)) )
+            tasks.append( asyncio.create_task(run_session(headless=ALL_HEADLESS)) )
         else:
             tasks.append( asyncio.create_task(run_session()) )
 
