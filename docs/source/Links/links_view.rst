@@ -13,7 +13,8 @@ Current Links
 
 {% for item in links %}
 
-* | {{ item }}  
+* | {{ item }}
+
  * | {{ links[item] }}
 
 {% endfor %}

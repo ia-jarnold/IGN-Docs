@@ -18,6 +18,7 @@ Welcome to IGN-Docs's
    Markdown/markdown.md
    Links/links_view.rst
    Docs/docs.rst
+   Acronymns/acronymns.rst
    Shared/actions.rst
 
 .. include:: ./Shared/actions.rst

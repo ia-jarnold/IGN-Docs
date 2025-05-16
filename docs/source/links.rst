@@ -1,5 +1,6 @@
+.. _CL Engine String Replacement: https://docs.chariot.io/display/CLD80/MQTT+Engine+String+Replacement
+.. _CL IGN GW Loggers: https://docs.chariot.io/display/CLD80/Loggers+for+MQTT+Modules+in+the+Ignition+gateway+logs
 .. _Chrome WS Inspect Overview: https://developer.chrome.com/docs/devtools/network/reference#frames
-.. _Cirrus Link Loggers: https://docs.chariot.io/display/CLD80/Loggers+for+MQTT+Modules+in+the+Ignition+gateway+logs
 .. _Enterprise Support Confluence: https://inductiveautomation.atlassian.net/wiki/spaces/SUP/pages/3690496006/Enterprise+Care
 .. _HSTS Spec: https://www.chromium.org/hsts/
 .. _HSTS Why and How Guide: https://www.acunetix.com/blog/articles/what-is-hsts-why-use-it/
@@ -15,10 +16,11 @@
 .. _IA Lets Encrypt: https://inductiveautomation.com/resources/article/lets-encrypt-guide-for-ignition
 .. _IA Server Sizing and Arch Guide: https://inductiveautomation.com/resources/article/ignition-server-sizing-and-architecture-guide
 .. _IA UM 8.1 Appendix: https://www.docs.inductiveautomation.com/docs/8.1/appendix
+.. _IA UM 8.1 GW CLI Utility: https://docs.inductiveautomation.com/docs/8.1/platform/gateway/gateway-command-line-utility-gwcmd
 .. _IA UM 8.1 Redundancy: https://www.docs.inductiveautomation.com/docs/8.1/platform/ignition-redundancy
+.. _IA UM 8.1 SQL Tables: https://docs.inductiveautomation.com/docs/8.1/appendix/reference-pages/ignition-database-table-reference
 .. _IA UM 8.1 Version Updates: https://docs.inductiveautomation.com/docs/8.1/new-in-this-version
 .. _IA User Manual (8.1): https://docs.inductiveautomation.com/docs/8.1/intro
-.. _IA_UM_8.1_SQL_TABLES: https://docs.inductiveautomation.com/docs/8.1/appendix/reference-pages/ignition-database-table-reference
 .. _IEC_61850_MP_OPC_3.0: https://library.e.abb.com/public/618a83d908d40c5ec1257b1300569f39/IEC61850%20Master%20Protocol%20OPC%203.0_usg_755321_ENc.pdf
 .. _KepwareEX_v6_Manual: https://opcturkey.com/uploads/kepserverex-v6-manual.pdf
 .. _Log4j Architecture: https://logging.apache.org/log4j/2.x/manual/architecture.html

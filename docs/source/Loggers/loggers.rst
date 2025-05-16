@@ -7,8 +7,8 @@ Info
 
 
 * `Log4j Architecture`_
-* Our `IA KBA Loggers`_ for reference.
-* `Cirrus Link Loggers`_
+* Our `IA KBA Loggers`_.
+* `CL IGN GW Loggers`_
 
 {% for item in ign_loggers %}
 
