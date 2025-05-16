@@ -44,14 +44,15 @@ IA Site
 IA Java Docs
 ============
 
+| I have not found the base url for 7.9/8.3 yet.
+
 {% for item in ign_versions %}
-* {{ item }}
-  {% for sitem in ign_versions[item] %}
-    {% if item  == "8.1" %}
-  * :ign_java_doc_8.1:`{{ sitem }}`
-    {% else %}
-  * `IA_JAVA_API_{{ sitem }}`_
-    {% endif %}
-  {% endfor %}
+  {% if item == "8.1" %}
+    {% for sitem in ign_versions[item] %}
+      {% if item  == "8.1" %}
+* :ign_java_doc_8.1:`{{ sitem }}`
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 

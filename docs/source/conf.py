@@ -106,7 +106,8 @@ html_context = { # makes varaiables accessable in jinja
     'test'  :test
 }
 
+# beware cross domain origin.
 extlinks = {
-  'ign_java_doc_8.1' : ('https://files.inductiveautomation.com/sdk/javadoc/ignition81/%s/index.html', '%s IGN Java docs' ),
+  'ign_java_doc_8.1' : ('https://files.inductiveautomation.com/sdk/javadoc/ignition81/%s/index.html', '%s IGN Java docs' )
   #'tickets_archive' : ('file://G:/My Drive/Tickets/%s', '%s') # chrome blocks this somehow.
 }

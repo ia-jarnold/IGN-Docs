@@ -25,6 +25,7 @@ Actions
       :text-align: left 
 
        * :octicon:`git-compare;1em;sd-text-info` Manage Links.
+
         * If Link ID does not exist will add the Link URL
         * If Link ID does exist will overwrite the Link URL
         * If Remove checkbox is selected. The Link ID and URL are removed from the docs.(should replace really)
