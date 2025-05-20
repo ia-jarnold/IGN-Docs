@@ -16,6 +16,7 @@
 .. _IA Lets Encrypt: https://inductiveautomation.com/resources/article/lets-encrypt-guide-for-ignition
 .. _IA Server Sizing and Arch Guide: https://inductiveautomation.com/resources/article/ignition-server-sizing-and-architecture-guide
 .. _IA UM 8.1 Appendix: https://www.docs.inductiveautomation.com/docs/8.1/appendix
+.. _IA UM 8.1 Deployment Practices: https://docs.inductiveautomation.com/docs/8.1/tutorials/ignition-8-deployment-best-practices
 .. _IA UM 8.1 GW CLI Utility: https://docs.inductiveautomation.com/docs/8.1/platform/gateway/gateway-command-line-utility-gwcmd
 .. _IA UM 8.1 Redundancy: https://www.docs.inductiveautomation.com/docs/8.1/platform/ignition-redundancy
 .. _IA UM 8.1 SQL Tables: https://docs.inductiveautomation.com/docs/8.1/appendix/reference-pages/ignition-database-table-reference

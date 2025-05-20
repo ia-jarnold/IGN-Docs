@@ -19,6 +19,7 @@ Welcome to IGN-Docs's
    Links/links_view.rst
    Docs/docs.rst
    Acronymns/acronymns.rst
+   HowTo/general.rst
    Shared/actions.rst
 
 .. include:: ./Shared/actions.rst
