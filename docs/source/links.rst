@@ -7,11 +7,14 @@
 .. _IA 8.1 Deployment Best Practices: https://inductiveautomation.com/resources/article/ignition-8-deployment-best-practices
 .. _IA Downloads: https://inductiveautomation.com/downloads/
 .. _IA Hardening Guide: https://inductiveautomation.com/resources/article/ignition-security-hardening-guide
+.. _IA KBA Common Anti-Virus Exclusions: https://support.inductiveautomation.com/hc/en-us/articles/4411581449101-Common-Anti-Virus-Exclusions
 .. _IA KBA IDB Reference (8.1): https://support.inductiveautomation.com/hc/en-us/articles/7653670012045-A-Reference-for-Ignition-s-Internal-Database-Tables
 .. _IA KBA Loggers: https://support.inductiveautomation.com/hc/en-us/articles/6277185790861-Logger-Index
 .. _IA KBA SSL: https://support.inductiveautomation.com/hc/en-us/articles/4885522461709-Understanding-SSL-in-Ignition
+.. _IA KBA Understanding Voice: https://support.inductiveautomation.com/hc/en-us/articles/4417304947085-Understanding-Voice
 .. _IA KBA Vision Client Troubleshooting: https://support.inductiveautomation.com/hc/en-us/articles/5876672308877-Vision-Client-Unresponsive
 .. _IA KBA Websockets: https://support.inductiveautomation.com/hc/en-us/articles/4436255099533-Websockets-in-Ignition
+.. _IA KBA Wireshark Basics: https://support.inductiveautomation.com/hc/en-us/articles/6346064943373-Wireshark-Basics
 .. _IA Knowledge Base: https://support.inductiveautomation.com/hc/en-us/sections/360010019951-Knowledge-Base
 .. _IA Lets Encrypt: https://inductiveautomation.com/resources/article/lets-encrypt-guide-for-ignition
 .. _IA Server Sizing and Arch Guide: https://inductiveautomation.com/resources/article/ignition-server-sizing-and-architecture-guide

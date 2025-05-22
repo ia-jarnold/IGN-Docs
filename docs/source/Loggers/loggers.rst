@@ -1,10 +1,9 @@
-=======
-Loggers
-=======
+================
+Ignition Loggers
+================
 
 Info
 ====
-
 
 * `Log4j Architecture`_
 * Our `IA KBA Loggers`_.

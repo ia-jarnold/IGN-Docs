@@ -97,18 +97,17 @@ links             = spec_data['links']
 test              = [1,2,3,4,5,6]
 
 html_context = { # makes varaiables accessable in jinja
-    'years' :        years,
-    'ign_versions':  ign_versions,
-    'ign_subsystem': ign_subsystem,
-    'ign_tickets':   ign_tickets,
-    'ign_loggers':   ign_loggers,
-    'links'  :links,
-    'test'  :test
+    'years'         : years,
+    'ign_versions'  : ign_versions,
+    'ign_subsystem' : ign_subsystem,
+    'ign_tickets'   : ign_tickets,
+    'ign_loggers'   : ign_loggers,
+    'links'         : links,
+    'test'          : test
 }
 
 # beware cross domain origin.
 extlinks = {
   'ign_java_doc_8.1' : ('https://files.inductiveautomation.com/sdk/javadoc/ignition81/%s/index.html', '%s IGN Java docs' ),
   'ign_zd_tickets'   : ('https://inductiveautomation.zendesk.com/agent/tickets/%s', 'Ticket: %s')
-  #'tickets_archive' : ('file://G:/My Drive/Tickets/%s', '%s') # chrome blocks this somehow.
 }
