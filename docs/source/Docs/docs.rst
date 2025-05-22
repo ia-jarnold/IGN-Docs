@@ -21,6 +21,9 @@ IA Knowledge Base
 * `IA KBA Loggers`_
 * `IA KBA Websockets`_
 * `IA KBA IDB Reference (8.1)`_
+* `IA KBA Common Anti-Virus Exclusions`_
+* `IA KBA Understanding Voice`_
+* `IA KBA Wireshark Basics`_
 
 IA User Manual
 ==============

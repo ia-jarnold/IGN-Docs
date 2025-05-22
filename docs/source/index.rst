@@ -7,42 +7,46 @@
 Welcome to IGN-Docs's
 =====================
 
+| **Ignition:**
+
 .. toctree::
    :maxdepth: 1 
 
-   Tickets/tickets.rst
    Subsystem/subsystem.rst
-   Versions/versions.rst
+   Docs/docs.rst
+   HowTo/general.rst
    Loggers/loggers.rst
+   Versions/versions.rst
+
+| **General:**
+
+.. toctree::
+   :maxdepth: 1
+
+   Links/links_view.rst
+   Acronymns/acronymns.rst
    Scripts/scripts.rst
    Markdown/markdown.md
-   Links/links_view.rst
-   Docs/docs.rst
-   Acronymns/acronymns.rst
-   HowTo/general.rst
    Shared/actions.rst
 
-.. include:: ./Shared/actions.rst
-
-Indices and tables
+Indices and Tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
-Drives
-======
-
-* :tickets_archive:`Gateway`
-
 Internal Links
 ==============
+
+| These can reference headers in the doc essentially should try to make headers unique because of this. But not always possible.
 
 * :ref:`Links`
 
 External Links
 ==============
+
+| More or less templated external links. For example the kba puts weird random numbers in there urls so kidna just template the good ones manually using link actions. The java docs for 8.1 are mainly all the same except version change which is not random but specified info.
 
 * `IA Downloads`_
 * `IA User Manual (8.1)`_
@@ -57,6 +61,7 @@ Colors
 * Hello there :redbold:`confusing but this submission is 2024.`
 * An icon :fab:`gitkraken;sd-text-success fa-xl`, some more text.
 * An icon :fas:`skull;sd-text-danger`, some more text.
+* Decoration :underline:`Hello there`
 
 
 Sphinx Design

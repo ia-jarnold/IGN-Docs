@@ -1,6 +1,6 @@
-=========
-Subsystem
-=========
+===================
+Ignition Subsystems
+===================
 
 .. toctree::
    :maxdepth: 1 

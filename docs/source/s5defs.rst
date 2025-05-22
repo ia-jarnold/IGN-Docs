@@ -31,6 +31,11 @@
 .. role:: yellowbold
 .. role:: orangebold
 
+.. Text Decorations 
+   ================
+
+.. role:: underline
+
 .. Text Sizes
    ==========
 
