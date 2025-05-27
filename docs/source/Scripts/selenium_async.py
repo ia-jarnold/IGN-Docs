@@ -68,7 +68,7 @@ async def run_session( headless=True ):
     try:
 
         driver.set_window_size(340, 695) # set a mobile window size.
-        driver.get("*********************")
+        driver.get("*********************") # start url for webpage
 
     except: 
         print('Error creating opening app/sizing')
@@ -197,8 +197,9 @@ async def run_session( headless=True ):
     try:
         driver.quit()
         print('Session id %s has logged out and driver exited successfully' % session_id)
-    except:
+    except Exception as e:
         print('Driver failed to close or was closed prematurly')
+        print(str(e))
 
 async def main():
 

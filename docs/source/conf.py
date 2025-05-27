@@ -22,7 +22,7 @@ extensions = [ 'sphinx_design',  # add dropdowns/cards/grids...
                'myst_parser', # add markdown support
                'sphinx.ext.autosectionlabel', # Internal links(H1/H2/H3)
                'sphinx.ext.extlinks' # helps template external links link ign java docs
-             ] # ass :ref:`` header links
+             ]
 
 templates_path = ['_templates']
 
@@ -78,16 +78,18 @@ def setup(app):
 
 # Build specs and put them in html_context for jijna also
 # if editing spec directly hidden .swp files can sneak in so beware...will fail build
+
+# this should just read files and map json paths no need to parse it off
+# check to ensure they are '^.*\.json$'.... in volume non .json files get loaded into image from editing etc...
 SPEC_PATH = './specs'
 SPECS = [f[:-5] for f in listdir(SPEC_PATH) if isfile(join(SPEC_PATH, f))]
 spec_data = {}
 for spec in SPECS:
-
-  print(spec)
+ 
   with open('%s/%s.json' % (SPEC_PATH, spec), 'r') as f:
       spec_data[spec] = json.load(f)
 
-years             = spec_data['years'] 
+years             = spec_data['years']  # spec_data['years.json']....
 links             = spec_data['links']
 ign_versions      = spec_data['ign_versions'] 
 ign_tickets       = spec_data['ign_tickets']
@@ -109,5 +111,6 @@ html_context = { # makes varaiables accessable in jinja
 # beware cross domain origin.
 extlinks = {
   'ign_java_doc_8.1' : ('https://files.inductiveautomation.com/sdk/javadoc/ignition81/%s/index.html', '%s IGN Java docs' ),
-  'ign_zd_tickets'   : ('https://inductiveautomation.zendesk.com/agent/tickets/%s', 'Ticket: %s')
+  'ign_zd_tickets'   : ('https://inductiveautomation.zendesk.com/agent/tickets/%s', 'Ticket: %s'),
+  'ign_yt_issues'   :  ('https://youtrack.ia.local/issue/%s', 'You Track Issue: %s')
 }

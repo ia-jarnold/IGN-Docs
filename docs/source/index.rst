@@ -7,23 +7,34 @@
 Welcome to IGN-Docs's
 =====================
 
-| **Ignition:**
+| :classic2:`Ignition:`
 
 .. toctree::
    :maxdepth: 1 
 
    Subsystem/subsystem.rst
-   Docs/docs.rst
+   Docs/ignition_docs.rst
    HowTo/general.rst
    Loggers/loggers.rst
    Versions/versions.rst
 
-| **General:**
+| :classic2:`Ignition Support:`
+
+.. toctree::
+   :maxdepth: 1
+
+   IgnSupport/ign_support.rst
+
+* `Enterprise Support Confluence`_
+
+
+| :classic2:`General:`
 
 .. toctree::
    :maxdepth: 1
 
    Links/links_view.rst
+   Docs/general_docs.rst
    Acronymns/acronymns.rst
    Scripts/scripts.rst
    Markdown/markdown.md
@@ -62,6 +73,8 @@ Colors
 * An icon :fab:`gitkraken;sd-text-success fa-xl`, some more text.
 * An icon :fas:`skull;sd-text-danger`, some more text.
 * Decoration :underline:`Hello there`
+* :classic1:`this colors`
+* :classic2:`this colors`
 
 
 Sphinx Design

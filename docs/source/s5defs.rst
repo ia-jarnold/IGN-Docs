@@ -31,6 +31,9 @@
 .. role:: yellowbold
 .. role:: orangebold
 
+.. role:: classic1
+.. role:: classic2
+
 .. Text Decorations 
    ================
 
