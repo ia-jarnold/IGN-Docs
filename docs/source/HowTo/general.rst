@@ -3,9 +3,9 @@ Ignition General How To's
 =========================
 
 | I noticed that I get rusty when describing certain really normal actions in igntion on Responses so these should hold stock responses for those. I.E. Obtaining diagnotic reports....Status -> Overview. They also all contain slightly different assets and 8.3 will make them more accessable.
-
+|
 | Can use show source in sidebar to copy the text/md to zendesk. Use CTRL-SHIFT-V to paste MD. Notice I am not generating the md here but just writing it, it is since canned response anyway should not be very dynamic.
-
+|
 | Screenshots in docs have a tendancy to become stale and make things more confusing especially in complex apps. So I try to rely on more text base simple explanations. Standardize etc...
 
 Pull Diagnostic Reports
@@ -26,6 +26,30 @@ Download Status Logs
 
 Take Gateway Backups
 ====================
+
+| What Comes in the GW Backup
+
+1. Project Configs
+2. Wrapper Logs
+3. SQLite DB backup not logs....
+4. logback.xml configs
+5. email-profiles
+6. ignition.conf
+7. Gateway.xml configs
+8. Python deps.
+9. Java third party db drivers
+10. OPCUA configs.
+11. Redundancy configs.
+
+| What they don't come with.
+
+1. Tag Exports
+2. Thread Dumps
+3. SQLite Logs for Status->Logs
+4. Modules?...DATA Only...
+ 
+
+| Response
 
 1. Navigate to GW->Config->Backup.
 2. Download backup.

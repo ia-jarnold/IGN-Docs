@@ -102,6 +102,16 @@
     font-weight: bold;
 }
 
+.classic1 {
+   color: #11303d;
+   font-weight: bold;
+}
+
+.classic2 {
+   color: #20435c;
+   font-weight: bold;
+}
+
 .underline {
     text-decoration: underline;
 }

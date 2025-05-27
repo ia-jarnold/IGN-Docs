@@ -52,9 +52,7 @@ IA Java Docs
 {% for item in ign_versions %}
   {% if item == "8.1" %}
     {% for sitem in ign_versions[item] %}
-      {% if item  == "8.1" %}
 * :ign_java_doc_8.1:`{{ sitem }}`
-      {% endif %}
     {% endfor %}
   {% endif %}
 {% endfor %}
