@@ -31,7 +31,7 @@ Take Gateway Backups
 
 1. Project Configs
 2. Wrapper Logs
-3. SQLite DB backup not logs....
+3. SQLite IDB backup config not logs....
 4. logback.xml configs
 5. email-profiles
 6. ignition.conf
@@ -40,10 +40,8 @@ Take Gateway Backups
 9. Java third party db drivers
 10. OPCUA configs.
 11. Redundancy configs.
+12. Tags....These can be extracted through kindling or by restoring the backup. I am still not sure if the 'internal impl details' are fully query-able in the idb file. It looked odd when I made a basic UDT etc on how things are combined but if have time will look again.
 
-| What they don't come with.
-
-1. Tag Exports
 2. Thread Dumps
 3. SQLite Logs for Status->Logs
 4. Modules?...DATA Only...

@@ -10,20 +10,20 @@ Welcome to IGN-Docs's
 | :classic2:`Ignition:`
 
 .. toctree::
-   :maxdepth: 1 
+   :maxdepth: 2
 
    Subsystem/subsystem.rst
    Docs/ignition_docs.rst
-   HowTo/general.rst
    Loggers/loggers.rst
    Versions/versions.rst
 
 | :classic2:`Ignition Support:`
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2 
 
    IgnSupport/ign_support.rst
+   IgnSupport/HowTo/general.rst
 
 * `Enterprise Support Confluence`_
 
