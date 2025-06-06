@@ -7,6 +7,51 @@ Scripts
 Ignition Scripts
 ================
 
+Ignition IDB SQL
+----------------
+
+| This is a good reference `IA KBA IDB Reference (8.1)`_ . But I am also trying to get some of the relations build in SQL for quick reference.
+|
+| The goal is to have a select clause like a report that highlight 'this tag group', 'this tag', 'this provider'
+
+| this may be more complicated or possibly a computed field for TAGCONFIG id not sure. There is forum post saying it is internal impl...gone in 8.3
+
+.. dropdown:: Tag Config Heirarchy
+   :color: info
+
+   .. code-block:: SQL 
+
+      SELECT *
+      FROM TAGCONFIG tc -- this is the leaf node I beleive we trace from will currently show tags with/out tag groups.
+           LEFT JOIN TAGGROUP tg ON tg.PROVIDERID = tc.PROVIDERID -- link through provider....Full join? or trust leaf...ie tag groups witout tags are not shown
+	   LEFT JOIN TAGPROVIDERSETTINGS tps ON tg.PROVIDERID = tps.TAGPROVIDERSETTINGS_ID
+
+
+
+Report Scripts
+--------------
+
+.. dropdown:: Basic Scripted Datasource with Parameter read 
+   :color: info
+
+   .. code-block:: python
+
+      def updateData(data, sample): # header provided for context IGN auto-fills.
+          
+          # for templated components can add other columns in ds like barcode parameterized by page.
+          #barcode = '%s.%s.%d.%s' % ('str','str',i,'str') etc
+
+          max_pages = data['max_pages'] # Read param from data
+	  header = ['pages'] # create ds headers
+
+	  list_data = [] # Build a 2D list of data here each row has 1 element and int.
+	  for i in range(1, (max_pages + 1) ):
+              list_data.append([i])
+
+	  pages = system.dataset.toDataSet(header, list_data) # construct datasource
+	  data['page_ds'] = pages # add to existing data sources with custom identifier
+
+
 Vision Scripts
 --------------
 

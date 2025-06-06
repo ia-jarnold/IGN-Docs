@@ -2,6 +2,9 @@
 .. _CL Engine String Replacement: https://docs.chariot.io/display/CLD80/MQTT+Engine+String+Replacement
 .. _CL IGN GW Loggers: https://docs.chariot.io/display/CLD80/Loggers+for+MQTT+Modules+in+the+Ignition+gateway+logs
 .. _Chrome WS Inspect Overview: https://developer.chrome.com/docs/devtools/network/reference#frames
+.. _Dnp3 Fundamentals: https://s3.wp.wsu.edu/uploads/sites/2217/2020/03/PEAC-2020-Fundamentals-DNP3-A-West.pdf
+.. _Dnp3 Quick Reference: https://cdn.chipkin.com/assets/uploads/imports/resources/DNP3QuickReference.pdf
+.. _Dnp3 Simulator: https://www.freyrscada.com/dnp3-ieee-1815-Client-Simulator.php
 .. _Enterprise Support Confluence: https://inductiveautomation.atlassian.net/wiki/spaces/SUP/pages/3690496006/Enterprise+Care
 .. _HSTS Spec: https://www.chromium.org/hsts/
 .. _HSTS Why and How Guide: https://www.acunetix.com/blog/articles/what-is-hsts-why-use-it/
@@ -14,6 +17,7 @@
 .. _IA KBA Loggers: https://support.inductiveautomation.com/hc/en-us/articles/6277185790861-Logger-Index
 .. _IA KBA Modbus RTU: https://support.inductiveautomation.com/hc/en-us/articles/34933648610317-Understanding-Modbus-RTU
 .. _IA KBA SSL: https://support.inductiveautomation.com/hc/en-us/articles/4885522461709-Understanding-SSL-in-Ignition
+.. _IA KBA Understanding Dnp3: https://support.inductiveautomation.com/hc/en-us/articles/25323815810317-Understanding-DNP3
 .. _IA KBA Understanding Voice: https://support.inductiveautomation.com/hc/en-us/articles/4417304947085-Understanding-Voice
 .. _IA KBA Vision Client Troubleshooting: https://support.inductiveautomation.com/hc/en-us/articles/5876672308877-Vision-Client-Unresponsive
 .. _IA KBA Websockets: https://support.inductiveautomation.com/hc/en-us/articles/4436255099533-Websockets-in-Ignition

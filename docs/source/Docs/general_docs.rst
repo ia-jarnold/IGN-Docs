@@ -9,7 +9,7 @@ General Docs
 
     * 2,2 : 2,3 : 2,1 
     * 3,2 : 3,3 : 3,1
-    * 1,2 : 1,3 : 1,1 -> 9 checks/compare ops -> 3^2 -> len(list)^2 -> n2
+    * 1,2 : 1,3 : 1,1 -> 9 checks/compare ops -> 3^2 -> len(list)^2 -> n^2
     * my basic retention example
 
   * But really Big-O means worst case in terms of resource. And If an algorithm handles the worst case all others will work.
