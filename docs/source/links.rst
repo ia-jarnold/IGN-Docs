@@ -9,6 +9,7 @@
 .. _HSTS Spec: https://www.chromium.org/hsts/
 .. _HSTS Why and How Guide: https://www.acunetix.com/blog/articles/what-is-hsts-why-use-it/
 .. _Heisenberg Uncertainty Principal: https://scienceexchange.caltech.edu/topics/quantum-science-explained/uncertainty-principle#:~:text=Formulated%20by%20the%20German%20physicist,about%20its%20speed%20and%20vice
+.. _HowTo Generate Key/Cert With San: https://medium.com/@antelle/how-to-generate-a-self-signed-ssl-certificate-for-an-ip-address-f0dd8dddf754
 .. _IA 8.1 Deployment Best Practices: https://inductiveautomation.com/resources/article/ignition-8-deployment-best-practices
 .. _IA Downloads: https://inductiveautomation.com/downloads/
 .. _IA Hardening Guide: https://inductiveautomation.com/resources/article/ignition-security-hardening-guide
@@ -17,6 +18,7 @@
 .. _IA KBA Loggers: https://support.inductiveautomation.com/hc/en-us/articles/6277185790861-Logger-Index
 .. _IA KBA Modbus RTU: https://support.inductiveautomation.com/hc/en-us/articles/34933648610317-Understanding-Modbus-RTU
 .. _IA KBA SSL: https://support.inductiveautomation.com/hc/en-us/articles/4885522461709-Understanding-SSL-in-Ignition
+.. _IA KBA Troubleshooting Launchers: https://support.inductiveautomation.com/hc/en-us/articles/4415277272205-Troubleshooting-Launchers-that-Silently-Fail-to-Launch-Applications-or-Designer
 .. _IA KBA Understanding Dnp3: https://support.inductiveautomation.com/hc/en-us/articles/25323815810317-Understanding-DNP3
 .. _IA KBA Understanding Voice: https://support.inductiveautomation.com/hc/en-us/articles/4417304947085-Understanding-Voice
 .. _IA KBA Vision Client Troubleshooting: https://support.inductiveautomation.com/hc/en-us/articles/5876672308877-Vision-Client-Unresponsive
@@ -28,11 +30,13 @@
 .. _IA UM 8.1 Appendix: https://www.docs.inductiveautomation.com/docs/8.1/appendix
 .. _IA UM 8.1 Deployment Practices: https://docs.inductiveautomation.com/docs/8.1/tutorials/ignition-8-deployment-best-practices
 .. _IA UM 8.1 GW CLI Utility: https://docs.inductiveautomation.com/docs/8.1/platform/gateway/gateway-command-line-utility-gwcmd
+.. _IA UM 8.1 Ignition Edge: https://docs.inductiveautomation.com/docs/8.1/other-editions/ignition-edge
 .. _IA UM 8.1 Redundancy: https://www.docs.inductiveautomation.com/docs/8.1/platform/ignition-redundancy
 .. _IA UM 8.1 SQL Tables: https://docs.inductiveautomation.com/docs/8.1/appendix/reference-pages/ignition-database-table-reference
 .. _IA UM 8.1 Version Updates: https://docs.inductiveautomation.com/docs/8.1/new-in-this-version
 .. _IA User Manual (8.1): https://docs.inductiveautomation.com/docs/8.1/intro
 .. _IEC_61850_MP_OPC_3.0: https://library.e.abb.com/public/618a83d908d40c5ec1257b1300569f39/IEC61850%20Master%20Protocol%20OPC%203.0_usg_755321_ENc.pdf
+.. _IO Server OPC Wiki: http://www.ioserver.com/
 .. _KepwareEX_v6_Manual: https://opcturkey.com/uploads/kepserverex-v6-manual.pdf
 .. _Linux SSSD StackOverflow: https://askubuntu.com/questions/1537494/dependency-failed-for-sssd
 .. _Log4j Architecture: https://logging.apache.org/log4j/2.x/manual/architecture.html
@@ -42,6 +46,7 @@
 .. _Python Multithreading Examples: https://www.geeksforgeeks.org/multithreading-python-set-1/
 .. _SELinux: https://en.wikipedia.org/wiki/Security-Enhanced_Linux#:~:text=SELinux%20is%20a%20set%20of,involved%20with%20security%20policy%20enforcement.
 .. _SMO Scripting Options: https://learn.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.smo.scriptingoptions?view=sql-smo-160
+.. _Schneider Electric Products A-Z: https://www.se.com/us/en/product-range-az
 .. _Selenium Locating Elements: https://selenium-python.readthedocs.io/locating-elements.html#locating-elements-by-css-selectors
 .. _Selenium Login Example: https://www.browserstack.com/guide/login-automation-using-selenium-webdriver
 .. _Vertech Alarm Pipline Troubleshooting: https://www.vertech.com/blog/troubleshoot-ignition-alarm-pipelines-like-a-pro

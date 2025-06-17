@@ -14,3 +14,4 @@ Ignition Subsystems
    Webserver/webserver.rst
    Client/client.rst
    Devices/devices.rst
+   Edition/edition.rst
