@@ -2,6 +2,10 @@
 Ignition Device Drivers
 =======================
 
+* `IO Server OPC Wiki`_ Similar OPC server with various drivers like ours. Built a bit more in line with the spec from the GUI perspective and may help translate what IGN configs are trying to achieve relative to the spec.
+
+  * Mentions Usergroups and supplies many test fixtrues etc...
+
 Modbus RTU Driver
 =================
 

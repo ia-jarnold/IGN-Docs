@@ -392,6 +392,14 @@ Selenium Scripts
 Shell
 =====
 
+.. dropdown:: SSL Generate CSR/KEY/CERT with SAN using OPENSSL 
+   :color: info
+
+   * `HowTo Generate Key/Cert With San`_
+
+   .. literalinclude:: ssl/ssl.sh
+      :language: bash 
+
 .. dropdown:: Expose Ubuntu VM shares
    :color: info
   
