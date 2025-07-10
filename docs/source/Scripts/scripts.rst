@@ -385,12 +385,11 @@ Selenium Scripts
       
       
       asyncio.run(main()) 
+ 
 
-      
 
-
-Shell
-=====
+Shell Scripts
+=============
 
 .. dropdown:: SSL Generate CSR/KEY/CERT with SAN using OPENSSL 
    :color: info
@@ -466,8 +465,8 @@ Shell
 
       flatpak run org.kde.kate
 
-SQL
-===
+SQL Scripts
+===========
 
 .. dropdown:: MSSQL Express TCP Port
    :color: info
@@ -481,6 +480,22 @@ SQL
       GO
       xp_readerrorlog 0, 1, N'Server is listening on'
       GO
+
+.. dropdown:: MSSQL See Active/Historic Query Info 
+   :color: info
+
+   | Will list parameterized query text with at least table name. Short hand for SQL Profiler 
+
+   .. code-block:: SQL
+     
+      -- MSSQL
+      SELECT t.[text], s.last_execution_time, *
+      FROM sys.dm_exec_cached_plans AS p
+      INNER JOIN sys.dm_exec_query_stats AS s
+                 ON p.plan_handle = s.plan_handle
+      CROSS APPLY sys.dm_exec_sql_text(p.plan_handle) AS t
+      WHERE t.[text] LIKE N'%INSERT%'
+      ORDER BY s.last_execution_time DESC;
 
 
 Powershell
