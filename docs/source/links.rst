@@ -5,6 +5,7 @@
 .. _Dnp3 Fundamentals: https://s3.wp.wsu.edu/uploads/sites/2217/2020/03/PEAC-2020-Fundamentals-DNP3-A-West.pdf
 .. _Dnp3 Quick Reference: https://cdn.chipkin.com/assets/uploads/imports/resources/DNP3QuickReference.pdf
 .. _Dnp3 Simulator: https://www.freyrscada.com/dnp3-ieee-1815-Client-Simulator.php
+.. _Element 8 Troubleshooting Guide: https://element8.co.za/Resources/ignition-diagnostics-and-troubleshooting-basics/
 .. _Enterprise Support Confluence: https://inductiveautomation.atlassian.net/wiki/spaces/SUP/pages/3690496006/Enterprise+Care
 .. _HSTS Spec: https://www.chromium.org/hsts/
 .. _HSTS Why and How Guide: https://www.acunetix.com/blog/articles/what-is-hsts-why-use-it/
@@ -40,6 +41,7 @@
 .. _KepwareEX_v6_Manual: https://opcturkey.com/uploads/kepserverex-v6-manual.pdf
 .. _Linux SSSD StackOverflow: https://askubuntu.com/questions/1537494/dependency-failed-for-sssd
 .. _Log4j Architecture: https://logging.apache.org/log4j/2.x/manual/architecture.html
+.. _Lone Ranger - William Tell Overture: https://www.youtube.com/watch?v=AnNKsk2a0fI
 .. _Nagelfar Syntax: https://nagelfar.sourceforge.net/
 .. _OPC_COM_5_Tips: https://www.opcti.com/opc-dcom-five-tips.aspx
 .. _Python Multiprocessing Library: https://docs.python.org/3/library/multiprocessing.html
