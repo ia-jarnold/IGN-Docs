@@ -98,15 +98,68 @@ Vision Scripts
       else: # steady state can add other steady state collections here similarly.
         pass
 
+Designer Console Scripts
+------------------------
+
+.. dropdown:: Timer Based Designer/GW Thread dumps. 
+   :color: info
+
+   | Main script will run a designer thread dump then send a message to the gw 'Thread Dump' Message handler to take it's own. 
+
+   .. code-block:: python
+
+      import time
+      import json
+      
+      
+      METRIC_NAME = 'DesignerThreads_H' # depends on metric
+      
+      for i in range(0, 10):
+      
+        ts = system.date.now()
+        ts_str = system.date.format(ts, "yy-MM-dd-HH-mm-ss")
+
+      	threads_json = json.loads(system.util.threadDump().replace('\n',''))
+      	with open('C:\Users\jarnold\%s-%s_%d.json' % (METRIC_NAME, ts_str, i), 'w') as fp:
+      		json.dump(threads_json, fp, indent=4)
+      
+      	project="test" # may be diff ************************************************
+      	# It's important that both Gateway and Client versions of this message handler have been created.
+      	messageHandler="ThreadDump"
+      	scope="CG"
+      	myDict = {'td': i}
+      	results=system.util.sendMessage(project,messageHandler,myDict,scope)
+      	time.sleep(1)
+
+   .. code-block:: python
+
+      # In gateway message handler.
+
+      # should verify the timer 1 sec may be to much but inline with Tag Group changes etc. Soft marker.
+      import time
+      import json
+     
+      # TODO extract payload to match event id's see above....
+      METRIC_NAME = 'GatewayThreads_H' # depends on metric
+      
+      ts = system.date.now()
+      ts_str = system.date.format(ts,"yy-MM-dd-HH-mm-ss")
+      
+      threads_json = json.loads(system.util.threadDump().replace('\n',''))
+      with open('C:\%s-%s.json' % (METRIC_NAME, ts_str), 'w') as fp:
+            json.dump(threads_json, fp, indent=4)
+
+
+
 Gateway Scripts
 ---------------
 
 | Gateway Scope
 
-.. dropdown:: Auto Thread Dumps based on Metrics
+.. dropdown:: Auto Thread Dumps based on System Tags / TagChangeScripts
    :color: info
 
-   | These Are put in tag change scripts and dpepenting on state will take thread dump. on/off or off/on etc...
+   | These Are put in tag change scripts and depending on state will take thread dump. on/off or off/on etc...
 
    .. code-block:: python
       
