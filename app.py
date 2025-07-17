@@ -13,6 +13,8 @@ import shutil
 import urllib.parse
 import json
 
+import lib.ign_golf as ign_golf 
+
 # Logs
 LOG_PATH    = './logs'
 BUILD_LOG   = LOG_PATH + '/build.log'
@@ -118,7 +120,7 @@ def read_source(request):
 
     else: # most derived cases...html path/referrer close to file path
 
-        # break up referer(url that sent this request)url
+        # break up referer(url that sent this request)
         comps = referer.split('/') 
         # get source file for replace end of path...
         srcf = comps[-1].replace('.html','.rst.txt')
@@ -204,6 +206,23 @@ def ulink():
 
     gunicorn_logger.info('Rebuilding Docs') 
     build_docs()
+
+    # build a new archive and serve.
+    return redirect(url_for('index'))
+
+@app.route("/test")
+def test():
+   
+    gunicorn_logger.info('Test Route')
+    try:
+
+        results = ign_golf.search_course('pinehurst')
+        gunicorn_logger.info(str(results))
+
+    except Exception as e:
+
+        gunicorn_logger.info(str(e))
+        
 
     # build a new archive and serve.
     return redirect(url_for('index'))
