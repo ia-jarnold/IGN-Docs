@@ -53,6 +53,7 @@
 .. _Schneider Electric Products A-Z: https://www.se.com/us/en/product-range-az
 .. _Selenium Locating Elements: https://selenium-python.readthedocs.io/locating-elements.html#locating-elements-by-css-selectors
 .. _Selenium Login Example: https://www.browserstack.com/guide/login-automation-using-selenium-webdriver
+.. _Shrug Emoji: https://www.piliapp.com/emoticon/shrug/
 .. _Vertech Alarm Pipline Troubleshooting: https://www.vertech.com/blog/troubleshoot-ignition-alarm-pipelines-like-a-pro
 .. _Websocket Debugging: https://stackoverflow.com/questions/5751495/debugging-websocket-in-google-chrome
 .. _Websocket KeepAlive and Latency: https://websockets.readthedocs.io/en/stable/topics/keepalive.html

@@ -9,4 +9,4 @@ docker run --name ign-docs \
 	-p 5000:5000 \
 	-v /home/jarnold/Projects/IGN-Docs:/app \
 	--restart always \
-	-d ign-docs 
+	-d ign-docs

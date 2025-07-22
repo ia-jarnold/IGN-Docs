@@ -1,5 +1,6 @@
 gunicorn
 flask
+flask-restful
 sphinx-nefertiti
 sphinx-design
 sphinx-favicon

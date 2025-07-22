@@ -29,6 +29,7 @@ SOURCE_DIR  = STATIC_DIR + '/_sources' # these are rst sources after in html bui
 
 # Archive
 ARCHIVE_DIR = './tmp' # archive dir.
+TMP_DIR = './tmp' # archive dir.
 
 DATE_FMT = "%m/%d/%Y %H:%M:%S" # common date format
 
@@ -210,25 +211,42 @@ def ulink():
     # build a new archive and serve.
     return redirect(url_for('index'))
 
-@app.route("/test")
-def test():
+@app.route("/golf_search")
+def golf_search():
    
+    name = request.args.get('name')
+
+    if name is None:
+        name = 'pinehurst'
+
+    name = name.strip()
+
     gunicorn_logger.info('Test Route')
     try:
 
-        results = ign_golf.search_course('pinehurst')
-        gunicorn_logger.info(str(results))
+        #results = ign_golf.healthcheck() # should be optional route maybe...
+        results = ign_golf.search_course( name )
+
+        if type(results['results']) == str: # need real exception class throws, error handling but close. and simple results will be obj errors not atm....can also use key in obj
+            gunicorn_logger.info( results['results'] )
+            return redirect(url_for('index'))
+
+        #results = ign_golf.healthcheck()
+        with open(STATIC_DIR + '/course.json', 'w') as fp:
+            json.dump(results['results'], fp, indent=4)
 
     except Exception as e:
 
-        gunicorn_logger.info(str(e))
-        
+        gunicorn_logger.info( str(e) )
+        return redirect(url_for('index'))
+ 
 
     # build a new archive and serve.
-    return redirect(url_for('index'))
+    return send_from_directory(STATIC_DIR, 'course.json')
 
-# build initial docs on server load if no index is there. for dev atm really
+# build initial docs on server load if no index is there. for dev atm really under gunicorn this file can exec multiple times.
 if not os.path.isfile( STATIC_DIR + '/index.html' ):
+
     gunicorn_logger.info('Running an initial build')
     build_docs()
 

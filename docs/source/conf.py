@@ -57,7 +57,7 @@ with open('links.rst') as f:
     rst_epilog += f.read()
 
 with open('s5defs.rst') as f:
-     rst_epilog += f.read()
+    rst_epilog += f.read()
 
 # allow templating of rst files using configurations
 # https://ericholscher.com/blog/2016/jul/25/integrating-jinja-rst-sphinx/
