@@ -444,6 +444,13 @@ Selenium Scripts
 Shell Scripts
 =============
 
+.. dropdown:: Find and replace in file 
+   :color: info
+  
+   .. code-block:: Bash 
+         
+      grep -rli '<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>' * | xargs -i@ sed -i 's/.*script.*src="https.*twemoji.*js.*script.*//g' @
+
 .. dropdown:: SSL Generate CSR/KEY/CERT with SAN using OPENSSL 
    :color: info
 

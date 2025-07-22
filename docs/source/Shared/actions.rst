@@ -42,7 +42,7 @@ Actions
             <input type="text" name="link" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Link URL" style="width: 450px"/>
             &nbsp;&nbsp;&nbsp;
             <label style="width: 95px">Remove?</label>
-            <input type="checkbox" name="remove_link" aria-labelledby="search-documentation" value="True" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/ style="width: 20px;">
+            <input type="checkbox" name="remove_link" aria-labelledby="search-documentation" value="True" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width: 20px;"/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="submit" value="Manage Link" class="sd-card sd-card-hover" />
           </form>
